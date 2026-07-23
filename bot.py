@@ -19,7 +19,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger("bot")
 
-ID_SERVIDOR = 1234569252874604585  # 👈 ID de "Hub Central" (tomado de tus capturas)
+ID_SERVIDOR = 1235469252874604585  # 👈 ID de "Hub Central" (tomado de tus capturas)
 
 class MiBotProfesional(commands.Bot):
     def __init__(self):
