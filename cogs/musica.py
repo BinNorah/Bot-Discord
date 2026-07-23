@@ -92,6 +92,23 @@ class Musica(commands.Cog):
         print(f"🎵 Nodo Lavalink conectado: {payload.node.identifier}")
 
     @commands.Cog.listener()
+    async def on_wavelink_track_exception(self, payload: wavelink.TrackExceptionEventPayload):
+        reproductor = payload.player
+        canal = getattr(reproductor, "home", None) if reproductor else None
+        if canal:
+            await canal.send(
+                f"⚠️ No se pudo reproducir esta canción (posible bloqueo de la fuente). "
+                f"Detalle: `{payload.exception.get('message', 'Error desconocido')}`"
+            )
+
+    @commands.Cog.listener()
+    async def on_wavelink_track_stuck(self, payload: wavelink.TrackStuckEventPayload):
+        reproductor = payload.player
+        canal = getattr(reproductor, "home", None) if reproductor else None
+        if canal:
+            await canal.send("⚠️ La reproducción se atascó y fue detenida. Intenta con otra canción.")
+
+    @commands.Cog.listener()
     async def on_wavelink_track_end(self, payload: wavelink.TrackEndEventPayload):
         reproductor = payload.player
         if not reproductor:
