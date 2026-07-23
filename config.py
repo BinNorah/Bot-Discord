@@ -12,8 +12,8 @@ load_dotenv()
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 # --- Configuración de Música (Lavalink) ---
-LAVALINK_URI = "http://strong-abundance.railway.internal:2333"
-LAVALINK_PASS = "youshallnotpass"
+LAVALINK_URI = os.getenv("LAVALINK_URI", "http://127.0.0.1:2333")
+LAVALINK_PASS = os.getenv("LAVALINK_PASS", "youshallnotpass")
 
 # --- Canales ---
 # ID del canal #Bienvenido
