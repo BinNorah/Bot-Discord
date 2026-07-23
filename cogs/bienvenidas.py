@@ -3,6 +3,13 @@ import discord
 from discord.ext import commands
 import config
 
+# Ruta absoluta a la carpeta gif/, relativa a la ubicación de este archivo,
+# para que funcione sin importar desde dónde se ejecute el bot (local o Railway).
+DIRECTORIO_BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RUTA_GIF_BIENVENIDA = os.path.join(DIRECTORIO_BASE, "gif", "bienvenida.gif")
+RUTA_GIF_DESPEDIDA = os.path.join(DIRECTORIO_BASE, "gif", "despedida.gif")
+
+
 class Bienvenidas(commands.Cog):
     """Cog para gestionar los mensajes automáticos de bienvenida y despedida."""
 
@@ -24,11 +31,8 @@ class Bienvenidas(commands.Cog):
 
         embed.set_footer(text=f"Norah | Miembros totales: {miembro.guild.member_count}")
 
-        # --- Lógica para imagen local ---
-        ruta_imagen = r"G:\Mi unidad\Discord\gif\bienvenida.gif"
-
-        if os.path.exists(ruta_imagen):
-            archivo = discord.File(ruta_imagen, filename="bienvenida.gif")
+        if os.path.exists(RUTA_GIF_BIENVENIDA):
+            archivo = discord.File(RUTA_GIF_BIENVENIDA, filename="bienvenida.gif")
             embed.set_image(url="attachment://bienvenida.gif")
             await canal.send(content=f"Bienvenido {miembro.mention} a Hub Central!", file=archivo, embed=embed)
         else:
@@ -48,11 +52,8 @@ class Bienvenidas(commands.Cog):
 
         embed.set_footer(text=f"Norah | Ahora somos {miembro.guild.member_count} miembros")
 
-        # --- Lógica para imagen local ---
-        ruta_imagen = r"G:\Mi unidad\Discord\gif\despedida.gif"
-
-        if os.path.exists(ruta_imagen):
-            archivo = discord.File(ruta_imagen, filename="despedida.gif")
+        if os.path.exists(RUTA_GIF_DESPEDIDA):
+            archivo = discord.File(RUTA_GIF_DESPEDIDA, filename="despedida.gif")
             embed.set_image(url="attachment://despedida.gif")
             await canal.send(file=archivo, embed=embed)
         else:
