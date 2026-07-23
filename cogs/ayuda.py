@@ -9,7 +9,6 @@ class MenuAyuda(discord.ui.Select):
             discord.SelectOption(label="Básico", description="Comandos de información y utilidad.", emoji="ℹ️", value="basico"),
             discord.SelectOption(label="Diversión", description="Minijuegos y comandos de azar.", emoji="🎲", value="diversion"),
             discord.SelectOption(label="Moderación", description="Comandos para administrar el servidor.", emoji="🛡️", value="moderacion"),
-            discord.SelectOption(label="Música", description="Controles de reproducción y música.", emoji="🎵", value="musica"),
             discord.SelectOption(label="Niveles", description="Sistema de experiencia y economía.", emoji="⭐", value="niveles")
         ]
         super().__init__(placeholder="Selecciona una categoría de comandos...", min_values=1, max_values=1, options=opciones)
@@ -20,7 +19,6 @@ class MenuAyuda(discord.ui.Select):
             "basico": ("ℹ️ Comandos Básicos", "`.ping`, `.info`, `.avatar`"),
             "diversion": ("🎲 Comandos de Diversión", "`.moneda`, `.dado`, `.8ball`"),
             "moderacion": ("🛡️ Comandos de Moderación", "`.kick`, `.ban`, `.unban`, `.mute`, `.unmute`, `.clear`, `.warn`, `.historial`"),
-            "musica": ("🎵 Comandos de Música", "`.play`, `.skip`, `.pause`, `.resume`, `.stop`, `.queue`"),
             "niveles": ("⭐ Sistema de Niveles", "`.perfil`")
         }
 
