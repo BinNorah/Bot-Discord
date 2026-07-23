@@ -1,0 +1,21 @@
+# Archivos de entorno y credenciales (¡Súper importante!)
+.env
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales locales
+venv/
+env/
+.venv/
+
+# Carpetas de datos locales o bases de datos de prueba
+*.db
+*.sqlite3
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+Lavalink.jar

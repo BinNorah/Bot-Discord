@@ -1,0 +1,49 @@
+import discord
+from discord.ext import commands
+
+import config
+
+class BotonVerificacion(discord.ui.View):
+    def __init__(self):
+        super().__init__(timeout=None)  # timeout=None = el botón no expira
+
+    @discord.ui.button(label="Verificarme", style=discord.ButtonStyle.green, emoji="✅", custom_id="verificacion_boton_persistente")
+    async def verificar(self, interaction: discord.Interaction, button: discord.ui.Button):
+        rol = interaction.guild.get_role(config.ROL_MIEMBRO_ID)
+        if rol is None:
+            return await interaction.response.send_message(
+                "⚠️ No encontré el rol de miembro. Avisa a un administrador.", ephemeral=True
+            )
+
+        if rol in interaction.user.roles:
+            return await interaction.response.send_message("Ya estás verificado.", ephemeral=True)
+
+        try:
+            await interaction.user.add_roles(rol, reason="Verificación por botón")
+        except discord.Forbidden:
+            return await interaction.response.send_message(
+                "⚠️ No tengo permisos para darte el rol. Avisa a un administrador.", ephemeral=True
+            )
+
+        await interaction.response.send_message("🎉 ¡Verificación completada! Ya tienes acceso al servidor.", ephemeral=True)
+
+
+class Verificacion(commands.Cog):
+    """Sistema de verificación por botón para desbloquear el acceso al servidor."""
+
+    def __init__(self, bot):
+        self.bot = bot
+        bot.add_view(BotonVerificacion())  # registra el botón como persistente al reiniciar el bot
+
+    @commands.hybrid_command(name="enviarverificacion", help="Publica el panel de verificación en este canal.")
+    @commands.has_permissions(administrator=True)
+    async def enviarverificacion(self, ctx):
+        embed = discord.Embed(
+            title="Verificación del servidor",
+            description="Lee las reglas del servidor y presiona el botón de abajo para desbloquear todo el contenido.",
+            color=config.COLOR_PRINCIPAL,
+        )
+        await ctx.send(embed=embed, view=BotonVerificacion())
+
+async def setup(bot):
+    await bot.add_cog(Verificacion(bot))

@@ -1,0 +1,634 @@
+2026-07-22 12:44:41,779 [WARNING] discord.client: PyNaCl is not installed, voice will NOT be supported
+2026-07-22 12:44:41,781 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 12:44:41,784 [ERROR] bot: No se encontró DISCORD_TOKEN en las variables de entorno.
+2026-07-22 12:46:01,521 [WARNING] discord.client: PyNaCl is not installed, voice will NOT be supported
+2026-07-22 12:46:01,522 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 12:46:01,526 [ERROR] bot: No se encontró DISCORD_TOKEN en las variables de entorno.
+2026-07-22 12:52:15,781 [WARNING] discord.client: PyNaCl is not installed, voice will NOT be supported
+2026-07-22 12:52:15,784 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 12:52:15,817 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 12:52:15,846 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 12:52:15,874 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 12:52:15,896 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 12:52:15,897 [INFO] discord.client: logging in using static token
+2026-07-22 12:52:17,402 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: daacb042730f6f2ef2ba6020a0f142cf).
+2026-07-22 12:52:19,409 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 12:52:44,860 [ERROR] bot: Error no manejado en el comando 'ban'
+Traceback (most recent call last):
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1056, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 973, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 880, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 750, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\converter.py", line 1466, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\converter.py", line 1350, in _actual_conversion
+    return await converter().convert(ctx, argument)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\converter.py", line 283, in convert
+    raise MemberNotFound(argument)
+discord.ext.commands.errors.MemberNotFound: Member "@123123123" not found.
+2026-07-22 13:03:28,747 [WARNING] discord.client: PyNaCl is not installed, voice will NOT be supported
+2026-07-22 13:03:28,748 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 13:03:28,759 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 13:03:28,765 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 13:03:28,769 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 13:03:28,775 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 13:03:28,775 [INFO] discord.client: logging in using static token
+2026-07-22 13:03:30,383 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 02543f9531dc1ec9b6816dd115e096f4).
+2026-07-22 13:03:32,393 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 13:05:11,040 [INFO] discord.gateway: Shard ID None has successfully RESUMED session 02543f9531dc1ec9b6816dd115e096f4.
+2026-07-22 13:05:56,734 [WARNING] discord.client: PyNaCl is not installed, voice will NOT be supported
+2026-07-22 13:05:56,736 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 13:05:56,747 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 13:05:56,751 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 13:05:56,755 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 13:05:56,758 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 13:05:56,759 [INFO] discord.client: logging in using static token
+2026-07-22 13:05:58,080 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: fcd17cdc631e968778e379209624fcc3).
+2026-07-22 13:06:00,084 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 13:10:47,343 [INFO] discord.gateway: Shard ID None has successfully RESUMED session fcd17cdc631e968778e379209624fcc3.
+2026-07-22 13:32:03,260 [INFO] discord.gateway: Shard ID None has successfully RESUMED session fcd17cdc631e968778e379209624fcc3.
+2026-07-22 13:44:21,002 [INFO] discord.gateway: Shard ID None has successfully RESUMED session fcd17cdc631e968778e379209624fcc3.
+2026-07-22 14:06:58,855 [WARNING] discord.client: PyNaCl is not installed, voice will NOT be supported
+2026-07-22 14:06:58,857 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:06:58,861 [INFO] discord.client: logging in using static token
+2026-07-22 14:06:59,723 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:06:59,847 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:06:59,874 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:06:59,898 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:06:59,917 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:06:59,957 [ERROR] bot: No se pudo cargar el cog: cogs.musica
+Traceback (most recent call last):
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 962, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "G:\Mi unidad\Discord\cogs\musica.py", line 3, in <module>
+    import wavelink
+ModuleNotFoundError: No module named 'wavelink'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "G:\Mi unidad\Discord\bot.py", line 41, in setup_hook
+    await self.load_extension(nombre_modulo)
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1040, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 965, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.musica' raised an error: ModuleNotFoundError: No module named 'wavelink'
+2026-07-22 14:06:59,966 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 14:07:00,536 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 14:07:01,737 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8a075c43fe16b95ef40d6b7df08e03c7).
+2026-07-22 14:07:03,742 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 14:08:15,783 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "play" is not found
+2026-07-22 14:10:06,116 [WARNING] discord.client: PyNaCl is not installed, voice will NOT be supported
+2026-07-22 14:10:06,118 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:10:06,122 [INFO] discord.client: logging in using static token
+2026-07-22 14:10:07,049 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:10:07,076 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:10:07,080 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:10:07,085 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:10:07,091 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:10:09,189 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=9kG4FoS_4zxl8v8J, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:10:09,190 [INFO] wavelink.websocket: Node(identifier=9kG4FoS_4zxl8v8J, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "1.4372529119981843" seconds.
+2026-07-22 14:10:12,676 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=9kG4FoS_4zxl8v8J, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:10:12,676 [INFO] wavelink.websocket: Node(identifier=9kG4FoS_4zxl8v8J, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "6.743821914583584" seconds.
+2026-07-22 14:10:21,466 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=9kG4FoS_4zxl8v8J, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:10:21,466 [INFO] wavelink.websocket: Node(identifier=9kG4FoS_4zxl8v8J, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "7.421811109763372" seconds.
+2026-07-22 14:10:30,948 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=9kG4FoS_4zxl8v8J, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:10:30,954 [INFO] wavelink.websocket: Node(identifier=9kG4FoS_4zxl8v8J, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "15.44934768994218" seconds.
+2026-07-22 14:10:48,462 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=9kG4FoS_4zxl8v8J, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:10:48,462 [INFO] wavelink.websocket: Node(identifier=9kG4FoS_4zxl8v8J, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "30.0" seconds.
+2026-07-22 14:10:55,791 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000026617D1D1C0>
+2026-07-22 14:11:33,604 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:11:33,610 [INFO] discord.client: logging in using static token
+2026-07-22 14:11:34,634 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:11:34,649 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:11:34,654 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:11:34,658 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:11:34,663 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:11:36,734 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=Oad3xDn77nmeiX2b, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:11:36,736 [INFO] wavelink.websocket: Node(identifier=Oad3xDn77nmeiX2b, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "0.737293563820151" seconds.
+2026-07-22 14:11:39,512 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=Oad3xDn77nmeiX2b, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:11:39,513 [INFO] wavelink.websocket: Node(identifier=Oad3xDn77nmeiX2b, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "6.151085491647927" seconds.
+2026-07-22 14:11:47,723 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=Oad3xDn77nmeiX2b, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:11:47,724 [INFO] wavelink.websocket: Node(identifier=Oad3xDn77nmeiX2b, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "10.856027529206504" seconds.
+2026-07-22 14:11:49,015 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000001DA4D096000>
+2026-07-22 14:17:51,841 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:17:51,850 [INFO] discord.client: logging in using static token
+2026-07-22 14:17:52,595 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:17:52,609 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:17:52,614 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:17:52,619 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:17:52,625 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:17:52,826 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 14:17:52,827 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 14:17:52,827 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 14:17:53,214 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 14:17:54,131 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 768f39e7384e39bdfc6e89a33b86c421).
+2026-07-22 14:17:56,150 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 14:18:10,370 [ERROR] TrackException: A Lavalink TrackException was received on Node(identifier=bsa-wiFo7tdD-eZx, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTED, players=1) for player <wavelink.player.Player object at 0x00000296A2E42B40>: Something broke when playing the track., caused by: java.lang.IllegalStateException: Must find action functions from script: /s/player/c80bf7e2/player_embed.vflset/es_MX/base.js, with severity: fault
+2026-07-22 14:20:35,939 [ERROR] TrackException: A Lavalink TrackException was received on Node(identifier=bsa-wiFo7tdD-eZx, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTED, players=1) for player <wavelink.player.Player object at 0x00000296A2E42B40>: Something broke when playing the track., caused by: java.lang.IllegalStateException: Must find action functions from script: /s/player/c80bf7e2/player_embed.vflset/es_MX/base.js, with severity: fault
+2026-07-22 14:23:56,230 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:23:56,235 [INFO] discord.client: logging in using static token
+2026-07-22 14:23:56,984 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:23:57,018 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:23:57,021 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:23:57,024 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:23:57,029 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:23:57,056 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 14:23:57,056 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 14:23:57,056 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 14:23:57,463 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 14:23:58,304 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 83a28daf7a4bc8da3933f44491bd834e).
+2026-07-22 14:24:00,325 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 14:24:34,146 [ERROR] TrackException: A Lavalink TrackException was received on Node(identifier=SciEQxTtPoXI-PNn, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTED, players=1) for player <wavelink.player.Player object at 0x0000025C40F68650>: Something broke when playing the track., caused by: java.lang.IllegalStateException: Must find action functions from script: /s/player/c80bf7e2/player_embed.vflset/es_MX/base.js, with severity: fault
+2026-07-22 14:24:52,756 [ERROR] TrackException: A Lavalink TrackException was received on Node(identifier=SciEQxTtPoXI-PNn, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTED, players=1) for player <wavelink.player.Player object at 0x0000025C41074290>: Something broke when playing the track., caused by: java.lang.IllegalStateException: Must find action functions from script: /s/player/c80bf7e2/player_embed.vflset/es_MX/base.js, with severity: fault
+2026-07-22 14:26:08,357 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:26:08,366 [INFO] discord.client: logging in using static token
+2026-07-22 14:26:09,693 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:26:09,715 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:26:09,720 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:26:09,724 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:26:09,727 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:26:11,786 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=wLKuracIr05ukNTR, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:26:11,787 [INFO] wavelink.websocket: Node(identifier=wLKuracIr05ukNTR, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "1.8599116860657336" seconds.
+2026-07-22 14:26:15,698 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=wLKuracIr05ukNTR, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:26:15,699 [INFO] wavelink.websocket: Node(identifier=wLKuracIr05ukNTR, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "7.416991946460712" seconds.
+2026-07-22 14:26:23,289 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 14:26:23,289 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 14:26:23,289 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 14:26:23,699 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 14:26:24,486 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1e5aa99c09786989c94c8e05769a0b2a).
+2026-07-22 14:26:26,495 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 14:26:45,262 [ERROR] TrackException: A Lavalink TrackException was received on Node(identifier=wLKuracIr05ukNTR, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTED, players=1) for player <wavelink.player.Player object at 0x000001444A55DC70>: Something broke when playing the track., caused by: java.lang.IllegalStateException: Must find action functions from script: /s/player/c80bf7e2/player_embed.vflset/es_MX/base.js, with severity: fault
+2026-07-22 14:27:33,341 [ERROR] TrackException: A Lavalink TrackException was received on Node(identifier=wLKuracIr05ukNTR, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTED, players=1) for player <wavelink.player.Player object at 0x000001444B6D4320>: Something broke when playing the track., caused by: java.lang.IllegalStateException: Must find action functions from script: /s/player/c80bf7e2/player_embed.vflset/es_MX/base.js, with severity: fault
+2026-07-22 14:29:32,596 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:29:32,603 [INFO] discord.client: logging in using static token
+2026-07-22 14:29:33,558 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:29:33,598 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:29:33,605 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:29:33,611 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:29:33,617 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:29:33,842 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 14:29:33,843 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 14:29:33,843 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 14:29:34,261 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 14:29:35,090 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8ddf06c3a3e718d2444b8972bc8e7a8d).
+2026-07-22 14:29:37,107 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 14:31:28,821 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:31:28,826 [INFO] discord.client: logging in using static token
+2026-07-22 14:31:29,631 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:31:29,648 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:31:29,652 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:31:29,656 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:31:29,660 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:31:29,712 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 14:31:29,712 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 14:31:29,713 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 14:31:30,069 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 14:31:30,751 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: b5c9e062ffa4ed1c792a5bfea9128108).
+2026-07-22 14:31:32,757 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 14:36:29,583 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:36:29,587 [INFO] discord.client: logging in using static token
+2026-07-22 14:36:30,245 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:36:30,268 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:36:30,272 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:36:30,277 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:36:30,282 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:36:32,369 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=aNKc8RQNLmn9CwQh, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:36:32,371 [INFO] wavelink.websocket: Node(identifier=aNKc8RQNLmn9CwQh, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "0.8639197398832479" seconds.
+2026-07-22 14:36:35,283 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=aNKc8RQNLmn9CwQh, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:36:35,284 [INFO] wavelink.websocket: Node(identifier=aNKc8RQNLmn9CwQh, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "4.441243087438001" seconds.
+2026-07-22 14:36:41,793 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=aNKc8RQNLmn9CwQh, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:36:41,794 [INFO] wavelink.websocket: Node(identifier=aNKc8RQNLmn9CwQh, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "8.882486174876002" seconds.
+2026-07-22 14:36:52,718 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=aNKc8RQNLmn9CwQh, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:36:52,718 [INFO] wavelink.websocket: Node(identifier=aNKc8RQNLmn9CwQh, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "16.945768516034235" seconds.
+2026-07-22 14:36:53,663 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000022D87C74A40>
+2026-07-22 14:37:08,075 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:37:08,083 [INFO] discord.client: logging in using static token
+2026-07-22 14:37:08,833 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:37:08,848 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:37:08,852 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:37:08,855 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:37:08,859 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:37:10,938 [WARNING] wavelink.websocket: An unexpected error occurred while connecting Node(identifier=ZGtwQM4cHNOGv_C0, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) to Lavalink: "Cannot connect to host 127.0.0.1:2333 ssl:default [El equipo remoto rechazó la conexión de red]"
+If this error persists or wavelink is unable to reconnect, please see: https://github.com/PythonistaGuild/Wavelink/issues
+2026-07-22 14:37:10,938 [INFO] wavelink.websocket: Node(identifier=ZGtwQM4cHNOGv_C0, uri=http://127.0.0.1:2333, status=NodeStatus.CONNECTING, players=0) retrying websocket connection in "0.5653521287942516" seconds.
+2026-07-22 14:37:11,681 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 14:37:11,682 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 14:37:11,682 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 14:37:12,099 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 14:37:14,451 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 79123f598d6b1861ccda6dead22c266b).
+2026-07-22 14:37:16,450 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 14:40:42,228 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:40:42,234 [INFO] discord.client: logging in using static token
+2026-07-22 14:40:42,992 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:40:43,011 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:40:43,014 [INFO] bot: Cog cargado correctamente: cogs.utilidades
+2026-07-22 14:40:43,019 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:40:43,024 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:40:43,073 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 14:40:43,074 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 14:40:43,074 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 14:40:43,472 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 14:40:44,377 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 3e47957cba8e2b2abc9ec599b0821798).
+2026-07-22 14:40:46,385 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 14:47:04,936 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "moneda" is not found
+2026-07-22 14:47:12,779 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "dado" is not found
+2026-07-22 14:47:23,857 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "8ball" is not found
+2026-07-22 14:47:36,120 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+2026-07-22 14:47:44,000 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "info" is not found
+2026-07-22 14:47:46,910 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "moneda" is not found
+2026-07-22 14:47:51,512 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "avatar" is not found
+2026-07-22 14:48:44,499 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "god" is not found
+2026-07-22 14:50:54,041 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "Pley" is not found
+2026-07-22 14:55:44,215 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:55:44,223 [INFO] discord.client: logging in using static token
+2026-07-22 14:55:45,108 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:55:45,123 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:55:45,127 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:55:45,130 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:55:45,156 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 14:55:45,157 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 14:55:45,157 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 14:55:45,527 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 14:55:46,290 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 6fcec753b5e3f968a34578e86cc8401c).
+2026-07-22 14:55:48,301 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 14:57:02,408 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+2026-07-22 14:58:58,318 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 14:58:58,326 [INFO] discord.client: logging in using static token
+2026-07-22 14:58:59,072 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 14:58:59,092 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 14:58:59,131 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 14:58:59,135 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 14:58:59,164 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 14:58:59,164 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 14:58:59,165 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 14:58:59,588 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 14:59:00,867 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: d575523cdf2062dab818142909895dba).
+2026-07-22 14:59:02,903 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 14:59:47,650 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "moneda" is not found
+2026-07-22 14:59:56,427 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "dado" is not found
+2026-07-22 15:00:02,748 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "8ball" is not found
+2026-07-22 15:03:14,877 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "dado" is not found
+2026-07-22 15:03:25,089 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "dado" is not found
+2026-07-22 15:03:37,999 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "8ball" is not found
+2026-07-22 15:04:01,292 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "moneda" is not found
+2026-07-22 15:05:53,119 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 15:05:53,127 [INFO] discord.client: logging in using static token
+2026-07-22 15:05:54,167 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 15:05:54,182 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 15:05:54,187 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 15:05:54,191 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 15:05:54,220 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 15:05:54,220 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 15:05:54,221 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 15:05:54,620 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 15:05:55,298 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: dcb30a7d8b588629f6832ab51ac60d70).
+2026-07-22 15:05:57,335 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 15:06:34,183 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 15:06:34,190 [INFO] discord.client: logging in using static token
+2026-07-22 15:06:35,023 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 15:06:35,049 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 15:06:35,056 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 15:06:35,061 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 15:06:35,091 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 15:06:35,092 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 15:06:35,092 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 15:06:35,435 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 15:06:36,157 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 54867b343e6b61e18301c00a3aca03c9).
+2026-07-22 15:06:38,166 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 15:13:20,737 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 15:13:20,745 [INFO] discord.client: logging in using static token
+2026-07-22 15:13:21,453 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 15:13:21,474 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 15:13:21,502 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 15:13:21,505 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 15:13:21,540 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 15:13:21,541 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 15:13:21,542 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 15:13:21,826 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 15:13:22,574 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 28dafdaccfb209b979c7ff42a77d0d29).
+2026-07-22 15:13:24,589 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 15:15:12,865 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 15:15:12,870 [INFO] discord.client: logging in using static token
+2026-07-22 15:15:13,689 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 15:15:13,709 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 15:15:13,733 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 15:15:13,737 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 15:15:13,768 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 15:15:13,768 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 15:15:13,768 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 15:15:14,164 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 15:15:15,067 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: ebc380f0c2b82fa8728ef3d4f771676e).
+2026-07-22 15:15:17,066 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 15:22:53,205 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 15:22:53,213 [INFO] discord.client: logging in using static token
+2026-07-22 15:22:54,033 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 15:22:54,074 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 15:22:54,078 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 15:22:54,081 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 15:22:54,106 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 15:22:54,107 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 15:22:54,107 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 15:22:54,415 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 15:22:55,253 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: b7644b21a00790b411cd52ab38cb22fa).
+2026-07-22 15:22:57,262 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 15:24:01,695 [INFO] discord.gateway: Shard ID None has successfully RESUMED session b7644b21a00790b411cd52ab38cb22fa.
+2026-07-22 15:33:59,238 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 15:33:59,242 [INFO] discord.client: logging in using static token
+2026-07-22 15:33:59,997 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 15:34:00,010 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 15:34:00,015 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 15:34:00,020 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 15:34:00,047 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 15:34:00,048 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 15:34:00,048 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 15:34:00,349 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 15:34:01,222 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 10a14d2d2d35d88b0157500aa7483e3b).
+2026-07-22 15:34:03,231 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 15:37:43,396 [INFO] discord.gateway: Shard ID None has successfully RESUMED session 10a14d2d2d35d88b0157500aa7483e3b.
+2026-07-22 15:39:13,765 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 15:39:13,772 [INFO] discord.client: logging in using static token
+2026-07-22 15:39:14,465 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 15:39:14,487 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 15:39:14,494 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 15:39:14,500 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 15:39:14,534 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 15:39:14,534 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 15:39:14,554 [INFO] bot: Cog cargado correctamente: cogs.bienvenidas
+2026-07-22 15:39:14,555 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 15:39:14,882 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 15:39:15,668 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 73c92165feb886b1d7fe365b3a56eb5f).
+2026-07-22 15:39:17,682 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 15:45:58,371 [ERROR] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "help" is not found
+2026-07-22 15:50:31,496 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 15:50:31,501 [INFO] discord.client: logging in using static token
+2026-07-22 15:50:32,248 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 15:50:32,265 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 15:50:32,270 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 15:50:32,275 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 15:50:32,302 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 15:50:32,303 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 15:50:32,335 [INFO] bot: Cog cargado correctamente: cogs.bienvenidas
+2026-07-22 15:50:32,335 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 15:50:32,671 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 15:50:33,430 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9e9cb4ae8faa2376956269557dc0d236).
+2026-07-22 15:50:35,466 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 16:01:25,664 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 16:01:25,671 [INFO] discord.client: logging in using static token
+2026-07-22 16:01:26,380 [INFO] bot: Inicializando base de datos asíncrona...
+2026-07-22 16:01:26,391 [INFO] bot: Base de datos lista.
+2026-07-22 16:01:26,434 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 16:01:26,466 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 16:01:26,489 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 16:01:26,492 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 16:01:26,520 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 16:01:26,521 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 16:01:26,524 [INFO] bot: Cog cargado correctamente: cogs.bienvenidas
+2026-07-22 16:01:26,543 [INFO] bot: Cog cargado correctamente: cogs.ayuda
+2026-07-22 16:01:26,544 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 16:01:27,022 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 16:01:28,777 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: a3333c32e95ea661101487beb0b03524).
+2026-07-22 16:01:30,784 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 16:04:20,879 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 16:04:20,887 [INFO] discord.client: logging in using static token
+2026-07-22 16:04:21,624 [INFO] bot: Inicializando base de datos asíncrona...
+2026-07-22 16:04:21,629 [INFO] bot: Base de datos lista.
+2026-07-22 16:04:21,638 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 16:04:21,678 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 16:04:21,683 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 16:04:21,709 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 16:04:21,735 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 16:04:21,736 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 16:04:21,739 [INFO] bot: Cog cargado correctamente: cogs.bienvenidas
+2026-07-22 16:04:21,745 [INFO] bot: Cog cargado correctamente: cogs.ayuda
+2026-07-22 16:04:21,745 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 16:04:22,148 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 16:04:22,969 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7c40e679e4a842b62bf9b95234f91547).
+2026-07-22 16:04:24,970 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 16:53:50,416 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 16:53:50,424 [INFO] discord.client: logging in using static token
+2026-07-22 16:53:51,129 [INFO] bot: Inicializando base de datos asíncrona...
+2026-07-22 16:53:51,145 [INFO] bot: Base de datos lista.
+2026-07-22 16:53:51,164 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 16:53:51,170 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 16:53:51,175 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 16:53:51,180 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 16:53:51,216 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 16:53:51,217 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 16:53:51,237 [INFO] bot: Cog cargado correctamente: cogs.bienvenidas
+2026-07-22 16:53:51,241 [INFO] bot: Cog cargado correctamente: cogs.ayuda
+2026-07-22 16:53:51,262 [INFO] bot: Cog cargado correctamente: cogs.verificacion
+2026-07-22 16:53:51,262 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 16:53:51,718 [INFO] bot: ¡Comandos de barra sincronizados con éxito!
+2026-07-22 16:53:52,527 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0bb289dc9d75252c479a7237ec9dc7d2).
+2026-07-22 16:53:54,538 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 16:56:06,410 [ERROR] bot: Error no manejado en el comando enviarverificacion: Command raised an exception: Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+2026-07-22 16:56:06,695 [ERROR] discord.client: Ignoring exception in on_command_error
+Traceback (most recent call last):
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "G:\Mi unidad\Discord\bot.py", line 84, in on_command_error
+    await ctx.send("⚠️ Ocurrió un error inesperado al intentar ejecutar el comando.")
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\context.py", line 1103, in send
+    return await super().send(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1706, in send
+    data = await state.http.send_message(channel.id, params=params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 772, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+2026-07-22 17:01:55,903 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 17:01:55,911 [INFO] discord.client: logging in using static token
+2026-07-22 17:01:57,019 [INFO] bot: Inicializando base de datos asíncrona...
+2026-07-22 17:01:57,033 [INFO] bot: Base de datos lista.
+2026-07-22 17:01:57,046 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 17:01:57,052 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 17:01:57,064 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 17:01:57,071 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 17:01:57,097 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 17:01:57,098 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 17:01:57,102 [INFO] bot: Cog cargado correctamente: cogs.bienvenidas
+2026-07-22 17:01:57,106 [INFO] bot: Cog cargado correctamente: cogs.ayuda
+2026-07-22 17:01:57,111 [INFO] bot: Cog cargado correctamente: cogs.verificacion
+2026-07-22 17:01:57,111 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 17:03:29,360 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 17:03:29,367 [INFO] discord.client: logging in using static token
+2026-07-22 17:03:30,077 [INFO] bot: Inicializando base de datos asíncrona...
+2026-07-22 17:03:30,082 [INFO] bot: Base de datos lista.
+2026-07-22 17:03:30,092 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 17:03:30,100 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 17:03:30,105 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 17:03:30,110 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 17:03:30,134 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 17:03:30,135 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 17:03:30,138 [INFO] bot: Cog cargado correctamente: cogs.bienvenidas
+2026-07-22 17:03:30,142 [INFO] bot: Cog cargado correctamente: cogs.ayuda
+2026-07-22 17:03:30,145 [INFO] bot: Cog cargado correctamente: cogs.verificacion
+2026-07-22 17:03:30,145 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 17:04:28,657 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 17:04:28,665 [INFO] discord.client: logging in using static token
+2026-07-22 17:04:29,524 [INFO] bot: Inicializando base de datos asíncrona...
+2026-07-22 17:04:29,532 [INFO] bot: Base de datos lista.
+2026-07-22 17:04:29,545 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 17:04:29,550 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 17:04:29,554 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 17:04:29,559 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 17:04:29,584 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 17:04:29,584 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 17:04:29,589 [INFO] bot: Cog cargado correctamente: cogs.bienvenidas
+2026-07-22 17:04:29,593 [INFO] bot: Cog cargado correctamente: cogs.ayuda
+2026-07-22 17:04:29,596 [INFO] bot: Cog cargado correctamente: cogs.verificacion
+2026-07-22 17:04:29,596 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 17:05:39,097 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 17:05:39,102 [INFO] discord.client: logging in using static token
+2026-07-22 17:05:39,849 [INFO] bot: Inicializando base de datos asíncrona...
+2026-07-22 17:05:39,860 [INFO] bot: Base de datos lista.
+2026-07-22 17:05:39,876 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 17:05:39,881 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 17:05:39,885 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 17:05:39,891 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 17:05:39,918 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 17:05:39,918 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 17:05:39,922 [INFO] bot: Cog cargado correctamente: cogs.bienvenidas
+2026-07-22 17:05:39,925 [INFO] bot: Cog cargado correctamente: cogs.ayuda
+2026-07-22 17:05:39,929 [INFO] bot: Cog cargado correctamente: cogs.verificacion
+2026-07-22 17:05:39,929 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 17:05:40,325 [WARNING] bot: No se pudo sincronizar slash commands (falta el scope 'applications.commands'). Los comandos de prefijo (.) seguirán funcionando normalmente.
+2026-07-22 17:05:42,900 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: bb98e89af7e40b1ba45b68557c79e21c).
+2026-07-22 17:05:44,928 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)
+2026-07-22 17:06:42,775 [ERROR] bot: Error no manejado en el comando enviarverificacion: Command raised an exception: Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+2026-07-22 17:06:43,065 [ERROR] discord.client: Ignoring exception in on_command_error
+Traceback (most recent call last):
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "G:\Mi unidad\Discord\bot.py", line 89, in on_command_error
+    await ctx.send("⚠️ Ocurrió un error inesperado al intentar ejecutar el comando.")
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\context.py", line 1103, in send
+    return await super().send(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1706, in send
+    data = await state.http.send_message(channel.id, params=params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 772, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+2026-07-22 17:09:34,266 [INFO] discord.gateway: Shard ID None has successfully RESUMED session bb98e89af7e40b1ba45b68557c79e21c.
+2026-07-22 17:20:48,118 [INFO] discord.gateway: Shard ID None has successfully RESUMED session bb98e89af7e40b1ba45b68557c79e21c.
+2026-07-22 17:47:31,239 [INFO] discord.gateway: Shard ID None has successfully RESUMED session bb98e89af7e40b1ba45b68557c79e21c.
+2026-07-22 17:48:53,700 [ERROR] discord.client: Ignoring exception in on_member_remove
+Traceback (most recent call last):
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "G:\Mi unidad\Discord\cogs\bienvenidas.py", line 57, in on_member_remove
+    await canal.send(file=archivo, embed=embed)
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1706, in send
+    data = await state.http.send_message(channel.id, params=params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 772, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50001): Missing Access
+2026-07-22 17:48:57,702 [ERROR] discord.client: Ignoring exception in on_member_join
+Traceback (most recent call last):
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "G:\Mi unidad\Discord\cogs\bienvenidas.py", line 33, in on_member_join
+    await canal.send(content=f"Bienvenido {miembro.mention} a Hub Central!", file=archivo, embed=embed)
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1706, in send
+    data = await state.http.send_message(channel.id, params=params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 772, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50001): Missing Access
+2026-07-22 17:49:37,642 [INFO] discord.gateway: Shard ID None has successfully RESUMED session bb98e89af7e40b1ba45b68557c79e21c.
+2026-07-22 17:51:05,631 [ERROR] discord.client: Ignoring exception in on_member_remove
+Traceback (most recent call last):
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "G:\Mi unidad\Discord\cogs\bienvenidas.py", line 57, in on_member_remove
+    await canal.send(file=archivo, embed=embed)
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1706, in send
+    data = await state.http.send_message(channel.id, params=params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 772, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50001): Missing Access
+2026-07-22 17:51:08,179 [ERROR] discord.client: Ignoring exception in on_member_join
+Traceback (most recent call last):
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "G:\Mi unidad\Discord\cogs\bienvenidas.py", line 33, in on_member_join
+    await canal.send(content=f"Bienvenido {miembro.mention} a Hub Central!", file=archivo, embed=embed)
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1706, in send
+    data = await state.http.send_message(channel.id, params=params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Norah\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 772, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50001): Missing Access
+2026-07-22 17:52:28,744 [WARNING] discord.client: davey is not installed, voice will NOT be supported
+2026-07-22 17:52:28,752 [INFO] discord.client: logging in using static token
+2026-07-22 17:52:29,513 [INFO] bot: Inicializando base de datos asíncrona...
+2026-07-22 17:52:29,519 [INFO] bot: Base de datos lista.
+2026-07-22 17:52:29,529 [INFO] bot: Cog cargado correctamente: cogs.diversion
+2026-07-22 17:52:29,537 [INFO] bot: Cog cargado correctamente: cogs.moderacion
+2026-07-22 17:52:29,541 [INFO] bot: Cog cargado correctamente: cogs.basico
+2026-07-22 17:52:29,546 [INFO] bot: Cog cargado correctamente: cogs.niveles
+2026-07-22 17:52:29,574 [INFO] wavelink.node: Experimental request caching has been toggled ON. To disable run Pool.toggle_cache()
+2026-07-22 17:52:29,575 [INFO] bot: Cog cargado correctamente: cogs.musica
+2026-07-22 17:52:29,579 [INFO] bot: Cog cargado correctamente: cogs.bienvenidas
+2026-07-22 17:52:29,582 [INFO] bot: Cog cargado correctamente: cogs.ayuda
+2026-07-22 17:52:29,586 [INFO] bot: Cog cargado correctamente: cogs.verificacion
+2026-07-22 17:52:29,586 [INFO] bot: Sincronizando comandos de barra...
+2026-07-22 17:52:29,896 [WARNING] bot: No se pudo sincronizar slash commands (falta el scope 'applications.commands'). Los comandos de prefijo (.) seguirán funcionando normalmente.
+2026-07-22 17:52:30,609 [INFO] discord.gateway: Shard ID None has connected to Gateway (Session ID: a2bcd80ff88b482e58bdb4214b052fd0).
+2026-07-22 17:52:32,608 [INFO] bot: Conectado como 𝑨𝒚𝒂𝒔𝒆 𝑴𝒐𝒎𝒐#5316 (ID: 1305736954293260318)

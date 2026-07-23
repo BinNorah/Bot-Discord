@@ -1,0 +1,101 @@
+import discord
+from discord.ext import commands
+
+import config
+
+class UtilidadesYAuditoria(commands.Cog):
+    """Eventos de servidor: Bienvenidas, despedidas y auditoría pasiva."""
+
+    def __init__(self, bot):
+        self.bot = bot
+
+    # --- SISTEMA DE BIENVENIDAS Y DESPEDIDAS ---
+
+    @commands.Cog.listener()
+    async def on_member_join(self, miembro: discord.Member):
+        canal = miembro.guild.get_channel(config.CANAL_BIENVENIDA_ID)
+        if canal is None:
+            return
+
+        embed = discord.Embed(
+            title=f"¡Bienvenido a {miembro.guild.name}!",
+            description=f"{miembro.mention}, gracias por unirte al servidor.",
+            color=config.COLOR_EXITO,
+        )
+        embed.set_thumbnail(url=miembro.display_avatar.url)
+        embed.add_field(
+            name="Cuenta creada",
+            value=discord.utils.format_dt(miembro.created_at, style="D"),
+            inline=True,
+        )
+        embed.set_footer(text=f"Ahora somos {miembro.guild.member_count} miembros")
+        await canal.send(embed=embed)
+
+    @commands.Cog.listener()
+    async def on_member_remove(self, miembro: discord.Member):
+        canal = miembro.guild.get_channel(config.CANAL_BIENVENIDA_ID)
+        if canal is None:
+            return
+
+        embed = discord.Embed(
+            title="Un miembro se ha ido",
+            description=f"**{miembro.name}** ha salido del servidor.",
+            color=config.COLOR_ERROR,
+        )
+        embed.set_thumbnail(url=miembro.display_avatar.url)
+        embed.set_footer(text=f"Ahora somos {miembro.guild.member_count} miembros")
+        await canal.send(embed=embed)
+
+    # --- SISTEMA DE AUDITORÍA PASIVA (LOGS) ---
+
+    @commands.Cog.listener()
+    async def on_message_delete(self, mensaje: discord.Message):
+        # Ignorar mensajes del propio bot o mensajes vacíos (como embeds puros)
+        if mensaje.author.bot or not mensaje.content:
+            return
+
+        canal_log = mensaje.guild.get_channel(config.CANAL_MODLOG_ID)
+        if canal_log is None:
+            return
+
+        embed = discord.Embed(
+            title="Mensaje Eliminado",
+            description=f"Un mensaje de {mensaje.author.mention} fue eliminado en {mensaje.channel.mention}.",
+            color=config.COLOR_ERROR,
+        )
+        # Asegurarnos de que el contenido no exceda el límite de caracteres de Discord
+        contenido = mensaje.content if len(mensaje.content) < 1024 else mensaje.content[:1020] + "..."
+        embed.add_field(name="Contenido", value=contenido, inline=False)
+        embed.set_footer(text=f"ID del Autor: {mensaje.author.id}")
+        embed.timestamp = discord.utils.utcnow()
+
+        await canal_log.send(embed=embed)
+
+    @commands.Cog.listener()
+    async def on_message_edit(self, antes: discord.Message, despues: discord.Message):
+        # Ignorar si es un bot o si el contenido no cambió (ej. Discord cargando la vista previa de un enlace)
+        if antes.author.bot or antes.content == despues.content:
+            return
+
+        canal_log = antes.guild.get_channel(config.CANAL_MODLOG_ID)
+        if canal_log is None:
+            return
+
+        embed = discord.Embed(
+            title="Mensaje Editado",
+            description=f"[Ir al mensaje]({despues.jump_url}) de {antes.author.mention} en {antes.channel.mention}.",
+            color=config.COLOR_ADVERTENCIA,
+        )
+        
+        texto_antes = antes.content if len(antes.content) < 1024 else antes.content[:1020] + "..."
+        texto_despues = despues.content if len(despues.content) < 1024 else despues.content[:1020] + "..."
+
+        embed.add_field(name="Antes", value=texto_antes, inline=False)
+        embed.add_field(name="Después", value=texto_despues, inline=False)
+        embed.set_footer(text=f"ID del Autor: {antes.author.id}")
+        embed.timestamp = discord.utils.utcnow()
+
+        await canal_log.send(embed=embed)
+
+async def setup(bot):
+    await bot.add_cog(UtilidadesYAuditoria(bot))
