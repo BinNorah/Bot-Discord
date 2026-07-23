@@ -81,8 +81,8 @@ class Musica(commands.Cog):
     async def cog_load(self):
         nodos = [
             wavelink.Node(
-                uri="http://127.0.0.1:2333", 
-                password="youshallnotpass"
+                uri=config.LAVALINK_URI,
+                password=config.LAVALINK_PASS
             )
         ]
         await wavelink.Pool.connect(nodes=nodos, client=self.bot, cache_capacity=100)
