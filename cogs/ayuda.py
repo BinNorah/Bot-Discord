@@ -44,7 +44,7 @@ class Ayuda(commands.Cog):
     async def help_command(self, ctx):
         embed = discord.Embed(
             title="Panel de Ayuda de Norah",
-            description="¡Hola! Soy Norah. Por favor, selecciona una categoría en el menú desplegable de abajo para ver mis comandos.",
+            description="¡Hola! Soy asistente de Norah. Por favor, selecciona una categoría en el menú desplegable de abajo para ver mis comandos.",
             color=config.COLOR_PRINCIPAL
         )
         embed.set_thumbnail(url=self.bot.user.display_avatar.url)
