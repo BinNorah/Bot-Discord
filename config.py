@@ -17,7 +17,7 @@ LAVALINK_PASS = os.getenv("LAVALINK_PASS", "youshallnotpass")
 
 # --- Canales ---
 # ID del canal #Bienvenido
-CANAL_BIENVENIDA_ID = int(os.getenv("CANAL_BIENVENIDA_ID", "1235631523793735822"))
+CANAL_BIENVENIDA_ID = int(os.getenv("CANAL_BIENVENIDA_ID", "1529957933947818135"))
 CANAL_MODLOG_ID = int(os.getenv("CANAL_MODLOG_ID", "0")) or None
 
 # --- Prefijo de comandos ---
