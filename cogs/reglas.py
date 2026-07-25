@@ -57,9 +57,9 @@ class Reglas(commands.Cog):
             value="Ningún administrador o moderador está por encima de estas leyes. La justicia es igual para todos.",
             inline=False
         )
-        # Buscar los roles por nombre para usar su mención real (con color)
-        rol_mod = discord.utils.get(ctx.guild.roles, name="[Moderador]")
-        rol_admin = discord.utils.get(ctx.guild.roles, name="[Administrador]")
+        # Buscar roles por coincidencia parcial (funciona aunque tengan caracteres especiales)
+        rol_mod = next((r for r in ctx.guild.roles if "Moderador" in r.name), None)
+        rol_admin = next((r for r in ctx.guild.roles if "Administrador" in r.name), None)
         mention_mod = rol_mod.mention if rol_mod else "@Moderador"
         mention_admin = rol_admin.mention if rol_admin else "@Administrador"
 
