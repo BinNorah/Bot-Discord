@@ -58,10 +58,10 @@ class Reglas(commands.Cog):
             inline=False
         )
         # Buscar los roles por nombre para usar su mención real (con color)
-        rol_mod = discord.utils.get(ctx.guild.roles, name="Moderadores")
-        rol_admin = discord.utils.get(ctx.guild.roles, name="Administradores")
-        mention_mod = rol_mod.mention if rol_mod else "@Moderadores"
-        mention_admin = rol_admin.mention if rol_admin else "@Administradores"
+        rol_mod = discord.utils.get(ctx.guild.roles, name="[Moderador]")
+        rol_admin = discord.utils.get(ctx.guild.roles, name="[Administrador]")
+        mention_mod = rol_mod.mention if rol_mod else "@Moderador"
+        mention_admin = rol_admin.mention if rol_admin else "@Administrador"
 
         embed.add_field(
             name="╰┈➤ 8️⃣ Dudas y Reportes",
