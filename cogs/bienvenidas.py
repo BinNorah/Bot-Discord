@@ -1,7 +1,10 @@
+import logging
 import os
 import discord
 from discord.ext import commands
 import config
+
+logger = logging.getLogger("bot")
 
 # Ruta absoluta a la carpeta gif/, relativa a la ubicación de este archivo,
 # para que funcione sin importar desde dónde se ejecute el bot (local o Railway).
@@ -21,6 +24,11 @@ class Bienvenidas(commands.Cog):
         # --- Envío del mensaje de bienvenida ---
         canal = miembro.guild.get_channel(config.CANAL_BIENVENIDA_ID)
         if canal is None:
+            logger.warning(
+                "No se encontró el canal de bienvenida %s en el servidor %s.",
+                config.CANAL_BIENVENIDA_ID,
+                miembro.guild.id,
+            )
             return
 
         embed = discord.Embed(

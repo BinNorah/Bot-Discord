@@ -11,21 +11,17 @@ load_dotenv()
 # --- Credenciales ---
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
-# --- Configuración de Música (Lavalink) ---
-LAVALINK_URI = os.getenv("LAVALINK_URI", "http://127.0.0.1:2333")
-LAVALINK_PASS = os.getenv("LAVALINK_PASS", "youshallnotpass")
-
 # --- Canales ---
 # ID del canal #Bienvenido
-CANAL_BIENVENIDA_ID = int(os.getenv("CANAL_BIENVENIDA_ID", "1529957933947818135"))
-CANAL_MODLOG_ID = int(os.getenv("CANAL_MODLOG_ID", "0")) or None
+CANAL_BIENVENIDA_ID = int(os.getenv("CANAL_BIENVENIDA_ID") or "1529957933947818135")
+CANAL_MODLOG_ID = int(os.getenv("CANAL_MODLOG_ID") or "0") or None
 
 # --- Prefijo de comandos ---
-PREFIJO = os.getenv("BOT_PREFIX", ".")
+PREFIJO = os.getenv("BOT_PREFIX") or "."
 
 # --- Configuración de Roles y Bienvenidas ---
 # ID del rol que se asigna automáticamente al entrar al servidor (〈 Miembro 〉)
-ROL_MIEMBRO_ID = int(os.getenv("ROL_MIEMBRO_ID", "1235637700812607539"))  # <--- Reemplaza el "0" por el ID real de tu rol o ponlo directo aquí
+ROL_MIEMBRO_ID = int(os.getenv("ROL_MIEMBRO_ID") or "1235637700812607539")  # <--- Reemplaza el "0" por el ID real de tu rol o ponlo directo aquí
 
 # --- Configuración de Niveles ---
 # Diccionario de recompensas (Nivel: ID_Del_Rol)

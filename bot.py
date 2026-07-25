@@ -56,13 +56,18 @@ class MiBotProfesional(commands.Bot):
         try:
             guild = discord.Object(id=ID_SERVIDOR)
             self.tree.copy_global_to(guild=guild)
-            await self.tree.sync(guild=guild)
-            logger.info("¡Comandos de barra sincronizados con éxito!")
+            synced = await self.tree.sync(guild=guild)
+            logger.info("¡Comandos de barra sincronizados en guild! Total: %d comandos", len(synced))
         except discord.Forbidden:
             logger.warning(
-                "No se pudo sincronizar slash commands (falta el scope 'applications.commands'). "
-                "Los comandos de prefijo (.) seguirán funcionando normalmente."
+                "No se pudo sincronizar en guild (falta el scope 'applications.commands'). "
+                "Intentando sincronización global (puede tardar hasta 1 hora en Discord)..."
             )
+            try:
+                synced = await self.tree.sync()
+                logger.info("¡Comandos sincronizados globalmente! Total: %d comandos", len(synced))
+            except Exception:
+                logger.exception("También falló la sincronización global.")
     async def on_ready(self):
         logger.info("Conectado como %s (ID: %s)", self.user, self.user.id)
         actividad = discord.Activity(
