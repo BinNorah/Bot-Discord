@@ -1,0 +1,47 @@
+{
+  "titulo": "°·˚⋆ Leyes Sagradas del Servidor ⋆˚·°",
+  "descripcion": "¡Hola miembro nuevo! ✨ Bienvenido/a a nuestra comunidad. Para mantener una convivencia hermosa, pacífica y llena de buena energía, te pedimos que sigas detalladamente nuestro reglamento oficial uwu:",
+  "footer": "Gracias por formar parte de nuestra comunidad 💖",
+  "reglas": [
+    {
+      "nombre": "╰┈➤ 1️⃣ Respeto Mutuo",
+      "valor": "Trata a todos los miembros con amabilidad. No se tolera el acoso, los insultos ni las actitudes tóxicas."
+    },
+    {
+      "nombre": "╰┈➤ 2️⃣ Contenido Apropiado",
+      "valor": "Prohibido el material NSFW, gore o links sospechosos en canales generales. Mantengamos la comunidad limpia."
+    },
+    {
+      "nombre": "╰┈➤ 3️⃣ Temas Sensibles",
+      "valor": "Evita hablar de suicidio, autolesiones o asesinatos. Cuidemos la salud mental y la tranquilidad de todos."
+    },
+    {
+      "nombre": "╰┈➤ 4️⃣ No Spam ni Self-Promo",
+      "valor": "No satures los chats con flood (mensajes repetitivos), mayúsculas excesivas ni invites a otros servidores sin permiso."
+    },
+    {
+      "nombre": "╰┈➤ 5️⃣ Canales Temáticos",
+      "valor": "Utiliza cada canal para el fin con el que fue creado (música, juegos, multimedia, etc.). ¡Mantengamos el orden!"
+    },
+    {
+      "nombre": "╰┈➤ 6️⃣ Uso de Comandos",
+      "valor": "No abuses de los comandos de los bots ni de los sistemas de interacción para no generar lag o molestar a los demás."
+    },
+    {
+      "nombre": "╰┈➤ 7️⃣ El Staff También Cumple",
+      "valor": "Ningún administrador o moderador está por encima de estas leyes. La justicia es igual para todos."
+    },
+    {
+      "nombre": "╰┈➤ 8️⃣ Dudas y Reportes",
+      "valor": "Si necesitas apoyo o presencias una injusticia, acude con confianza a {Moderador} o {Administrador}."
+    },
+    {
+      "nombre": "╰┈➤ 9️⃣ Configuración de Perfil",
+      "valor": "Evita llevar nicks, estados o avatares ofensivos, explícitos o que busquen generar polémica en el servidor."
+    },
+    {
+      "nombre": "╰┈➤ 🔟 Convivencia Sana",
+      "valor": "Al final del día, estamos aquí para pasarla lindo, hacer amigos y crecer juntos en esta bonita comunidad. ✨"
+    }
+  ]
+}

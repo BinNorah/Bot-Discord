@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 
 import config
+from base_datos import db
+
 
 class BotonVerificacion(discord.ui.View):
     def __init__(self):
@@ -9,7 +11,15 @@ class BotonVerificacion(discord.ui.View):
 
     @discord.ui.button(label="Verificarme", style=discord.ButtonStyle.green, emoji="✅", custom_id="verificacion_boton_persistente")
     async def verificar(self, interaction: discord.Interaction, button: discord.ui.Button):
-        rol = interaction.guild.get_role(config.ROL_MIEMBRO_ID)
+        # Leer el rol de verificación desde la base de datos
+        conf = await db.obtener_configuracion(str(interaction.guild.id))
+        if not conf or not conf[2]:
+            return await interaction.response.send_message(
+                "⚠️ Este servidor aún no ha configurado el rol de verificación. Avisa a un administrador para que use `/configurar_rol_miembro`.",
+                ephemeral=True
+            )
+
+        rol = interaction.guild.get_role(int(conf[2]))
         if rol is None:
             return await interaction.response.send_message(
                 "⚠️ No encontré el rol de miembro. Avisa a un administrador.", ephemeral=True

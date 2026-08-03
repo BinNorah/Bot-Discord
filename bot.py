@@ -19,7 +19,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger("bot")
 
-ID_SERVIDOR = 1235469252874604585  # 👈 ID de "Hub Central" (tomado de tus capturas)
 
 class MiBotProfesional(commands.Bot):
     def __init__(self):
@@ -51,23 +50,14 @@ class MiBotProfesional(commands.Bot):
                 except Exception:
                     logger.exception("No se pudo cargar el cog: %s", nombre_modulo)
 
-        # 3. Sincronizamos el árbol de comandos de barra (Slash Commands) solo en tu servidor (instantáneo)
-        logger.info("Sincronizando comandos de barra...")
+        # 3. Sincronizamos el árbol de comandos de barra (Slash Commands) de forma global
+        logger.info("Sincronizando comandos de barra globalmente...")
         try:
-            guild = discord.Object(id=ID_SERVIDOR)
-            self.tree.copy_global_to(guild=guild)
-            synced = await self.tree.sync(guild=guild)
-            logger.info("¡Comandos de barra sincronizados en guild! Total: %d comandos", len(synced))
-        except discord.Forbidden:
-            logger.warning(
-                "No se pudo sincronizar en guild (falta el scope 'applications.commands'). "
-                "Intentando sincronización global (puede tardar hasta 1 hora en Discord)..."
-            )
-            try:
-                synced = await self.tree.sync()
-                logger.info("¡Comandos sincronizados globalmente! Total: %d comandos", len(synced))
-            except Exception:
-                logger.exception("También falló la sincronización global.")
+            synced = await self.tree.sync()
+            logger.info("¡Comandos de barra sincronizados globalmente! Total: %d comandos", len(synced))
+        except Exception:
+            logger.exception("No se pudo sincronizar los comandos de barra.")
+
     async def on_ready(self):
         logger.info("Conectado como %s (ID: %s)", self.user, self.user.id)
         actividad = discord.Activity(

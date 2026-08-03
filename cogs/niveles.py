@@ -1,3 +1,4 @@
+import json
 import time
 import random
 import discord
@@ -26,7 +27,6 @@ class Niveles(commands.Cog):
         usuario_id = str(mensaje.author.id)
         tiempo_actual = time.time()
 
-        # AQUÍ ESTÁ EL AWAIT AÑADIDO
         xp, nivel, monedas, ultimo_mensaje = await db.obtener_perfil(servidor_id, usuario_id)
 
         if (tiempo_actual - ultimo_mensaje) < self.enfriamiento:
@@ -43,7 +43,6 @@ class Niveles(commands.Cog):
             nivel += 1
             subio_nivel = True
 
-        # AQUÍ ESTÁ EL AWAIT AÑADIDO
         await db.actualizar_perfil(servidor_id, usuario_id, xp, nivel, monedas, nuevo_ultimo_mensaje)
 
         if subio_nivel:
@@ -54,15 +53,20 @@ class Niveles(commands.Cog):
             )
             await mensaje.channel.send(embed=embed)
 
-            if nivel in config.ROLES_RECOMPENSA:
-                rol_id = config.ROLES_RECOMPENSA[nivel]
-                rol = mensaje.guild.get_role(rol_id)
-                if rol:
-                    try:
-                        await mensaje.author.add_roles(rol, reason=f"Alcanzó el nivel {nivel}")
-                        await mensaje.channel.send(f"🎖️ {mensaje.author.mention} ha desbloqueado el rol: **{rol.name}**")
-                    except discord.Forbidden:
-                        pass 
+            # Leer los roles de recompensa desde la base de datos
+            conf = await db.obtener_configuracion(servidor_id)
+            if conf and conf[3]:
+                roles_recompensa = json.loads(conf[3])
+                # Las keys del JSON son siempre strings, comparar con str(nivel)
+                rol_id_str = roles_recompensa.get(str(nivel))
+                if rol_id_str:
+                    rol = mensaje.guild.get_role(int(rol_id_str))
+                    if rol:
+                        try:
+                            await mensaje.author.add_roles(rol, reason=f"Alcanzó el nivel {nivel}")
+                            await mensaje.channel.send(f"🎖️ {mensaje.author.mention} ha desbloqueado el rol: **{rol.name}**")
+                        except discord.Forbidden:
+                            pass 
 
     @commands.hybrid_command(name="perfil", help="Muestra tu tarjeta de perfil, nivel y monedas.")
     async def perfil(self, ctx, miembro: discord.Member = None):
@@ -71,7 +75,6 @@ class Niveles(commands.Cog):
         if usuario.bot:
             return await ctx.send("Los bots no tienen perfiles de experiencia.")
 
-        # AQUÍ ESTÁ EL AWAIT AÑADIDO
         xp, nivel, monedas, _ = await db.obtener_perfil(str(ctx.guild.id), str(usuario.id))
         xp_siguiente = calcular_xp_necesaria(nivel)
         

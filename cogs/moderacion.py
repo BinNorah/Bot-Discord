@@ -24,8 +24,10 @@ class Moderacion(commands.Cog):
 
         await ctx.send(embed=embed)
 
-        if config.CANAL_MODLOG_ID:
-            canal = ctx.guild.get_channel(config.CANAL_MODLOG_ID)
+        # Leer el canal de modlog desde la base de datos
+        conf = await db.obtener_configuracion(str(ctx.guild.id))
+        if conf and conf[1]:
+            canal = ctx.guild.get_channel(int(conf[1]))
             if canal:
                 await canal.send(embed=embed)
 
@@ -120,7 +122,6 @@ class Moderacion(commands.Cog):
     @commands.hybrid_command(name="warn", help="Envía una advertencia formal y la guarda.")
     @commands.has_permissions(kick_members=True)
     async def warn(self, ctx, miembro: discord.Member, *, razon: str = "No especificada"):
-        # AQUÍ ESTÁ EL AWAIT AÑADIDO
         await db.registrar_advertencia(
             servidor_id=str(ctx.guild.id),
             usuario_id=str(miembro.id),
@@ -139,7 +140,6 @@ class Moderacion(commands.Cog):
     @commands.hybrid_command(name="historial", help="Muestra el historial de advertencias.")
     @commands.has_permissions(moderate_members=True)
     async def historial(self, ctx, miembro: discord.Member):
-        # AQUÍ ESTÁ EL AWAIT AÑADIDO
         registros = await db.consultar_historial(str(ctx.guild.id), str(miembro.id))
 
         if not registros:

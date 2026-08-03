@@ -1,0 +1,166 @@
+import json
+import discord
+from discord import app_commands
+from discord.ext import commands
+
+import config
+from base_datos import db
+
+
+class Configuracion(commands.Cog):
+    """Comandos administrativos para configurar el bot en cada servidor."""
+
+    def __init__(self, bot: commands.Bot):
+        self.bot = bot
+
+    # ─── /configurar_bienvenida ───────────────────────────────────────
+
+    @commands.hybrid_command(
+        name="configurar_bienvenida",
+        description="Establece el canal donde se enviarán las bienvenidas y despedidas."
+    )
+    @commands.has_permissions(administrator=True)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.describe(canal="El canal de texto para los mensajes de bienvenida")
+    async def configurar_bienvenida(self, ctx: commands.Context, canal: discord.TextChannel):
+        await db.guardar_canal_bienvenida(str(ctx.guild.id), str(canal.id))
+
+        embed = discord.Embed(
+            title="✅ Canal de bienvenida configurado",
+            description=f"Las bienvenidas y despedidas se enviarán a {canal.mention}.",
+            color=config.COLOR_EXITO
+        )
+        await ctx.send(embed=embed, ephemeral=True)
+
+    # ─── /configurar_modlog ───────────────────────────────────────────
+
+    @commands.hybrid_command(
+        name="configurar_modlog",
+        description="Establece el canal donde se registrarán las acciones de moderación."
+    )
+    @commands.has_permissions(administrator=True)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.describe(canal="El canal de texto para los logs de moderación")
+    async def configurar_modlog(self, ctx: commands.Context, canal: discord.TextChannel):
+        await db.guardar_canal_modlog(str(ctx.guild.id), str(canal.id))
+
+        embed = discord.Embed(
+            title="✅ Canal de modlog configurado",
+            description=f"Los registros de moderación se enviarán a {canal.mention}.",
+            color=config.COLOR_EXITO
+        )
+        await ctx.send(embed=embed, ephemeral=True)
+
+    # ─── /configurar_rol_miembro ──────────────────────────────────────
+
+    @commands.hybrid_command(
+        name="configurar_rol_miembro",
+        description="Establece el rol que se otorga al verificarse un nuevo miembro."
+    )
+    @commands.has_permissions(administrator=True)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.describe(rol="El rol que se asignará al verificarse")
+    async def configurar_rol_miembro(self, ctx: commands.Context, rol: discord.Role):
+        await db.guardar_rol_miembro(str(ctx.guild.id), str(rol.id))
+
+        embed = discord.Embed(
+            title="✅ Rol de verificación configurado",
+            description=f"Al verificarse, los miembros recibirán el rol {rol.mention}.",
+            color=config.COLOR_EXITO
+        )
+        await ctx.send(embed=embed, ephemeral=True)
+
+    # ─── /configurar_recompensa ───────────────────────────────────────
+
+    @commands.hybrid_command(
+        name="configurar_recompensa",
+        description="Asigna un rol como recompensa al alcanzar cierto nivel."
+    )
+    @commands.has_permissions(administrator=True)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.describe(nivel="El nivel requerido para obtener el rol", rol="El rol de recompensa")
+    async def configurar_recompensa(self, ctx: commands.Context, nivel: int, rol: discord.Role):
+        if nivel < 1:
+            return await ctx.send("❌ El nivel debe ser mayor o igual a 1.", ephemeral=True)
+
+        # Leer las recompensas existentes
+        conf = await db.obtener_configuracion(str(ctx.guild.id))
+        if conf and conf[3]:
+            roles_dict = json.loads(conf[3])
+        else:
+            roles_dict = {}
+
+        # Actualizar con la nueva recompensa (las keys del JSON son siempre strings)
+        roles_dict[str(nivel)] = str(rol.id)
+        await db.guardar_roles_recompensa(str(ctx.guild.id), roles_dict)
+
+        embed = discord.Embed(
+            title="✅ Recompensa de nivel configurada",
+            description=f"Al alcanzar el **Nivel {nivel}**, los miembros recibirán el rol {rol.mention}.",
+            color=config.COLOR_EXITO
+        )
+        await ctx.send(embed=embed, ephemeral=True)
+
+    # ─── /ver_configuracion ──────────────────────────────────────────
+
+    @commands.hybrid_command(
+        name="ver_configuracion",
+        description="Muestra la configuración actual del bot en este servidor."
+    )
+    @commands.has_permissions(administrator=True)
+    @app_commands.default_permissions(administrator=True)
+    async def ver_configuracion(self, ctx: commands.Context):
+        conf = await db.obtener_configuracion(str(ctx.guild.id))
+
+        embed = discord.Embed(
+            title=f"⚙️ Configuración de {ctx.guild.name}",
+            color=config.COLOR_INFO
+        )
+
+        if not conf:
+            embed.description = "Este servidor aún no tiene ninguna configuración guardada.\nUsa los comandos `/configurar_*` para empezar."
+            return await ctx.send(embed=embed, ephemeral=True)
+
+        canal_bienvenida_id, canal_modlog_id, rol_miembro_id, roles_recompensa_json = conf
+
+        # Canal de bienvenida
+        if canal_bienvenida_id:
+            canal = ctx.guild.get_channel(int(canal_bienvenida_id))
+            embed.add_field(name="📢 Canal de Bienvenida", value=canal.mention if canal else f"ID: {canal_bienvenida_id} (no encontrado)", inline=False)
+        else:
+            embed.add_field(name="📢 Canal de Bienvenida", value="*No configurado*", inline=False)
+
+        # Canal de modlog
+        if canal_modlog_id:
+            canal = ctx.guild.get_channel(int(canal_modlog_id))
+            embed.add_field(name="📋 Canal de Modlog", value=canal.mention if canal else f"ID: {canal_modlog_id} (no encontrado)", inline=False)
+        else:
+            embed.add_field(name="📋 Canal de Modlog", value="*No configurado*", inline=False)
+
+        # Rol de verificación
+        if rol_miembro_id:
+            rol = ctx.guild.get_role(int(rol_miembro_id))
+            embed.add_field(name="🛡️ Rol de Verificación", value=rol.mention if rol else f"ID: {rol_miembro_id} (no encontrado)", inline=False)
+        else:
+            embed.add_field(name="🛡️ Rol de Verificación", value="*No configurado*", inline=False)
+
+        # Roles de recompensa
+        if roles_recompensa_json:
+            roles_dict = json.loads(roles_recompensa_json)
+            if roles_dict:
+                lineas = []
+                for nivel_str, rol_id_str in sorted(roles_dict.items(), key=lambda x: int(x[0])):
+                    rol = ctx.guild.get_role(int(rol_id_str))
+                    nombre_rol = rol.mention if rol else f"ID: {rol_id_str}"
+                    lineas.append(f"Nivel **{nivel_str}** → {nombre_rol}")
+                embed.add_field(name="🎖️ Recompensas por Nivel", value="\n".join(lineas), inline=False)
+            else:
+                embed.add_field(name="🎖️ Recompensas por Nivel", value="*No configuradas*", inline=False)
+        else:
+            embed.add_field(name="🎖️ Recompensas por Nivel", value="*No configuradas*", inline=False)
+
+        await ctx.send(embed=embed, ephemeral=True)
+
+
+async def setup(bot: commands.Bot):
+    await bot.add_cog(Configuracion(bot))
