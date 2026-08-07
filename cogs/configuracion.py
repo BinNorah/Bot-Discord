@@ -159,46 +159,52 @@ class Configuracion(commands.Cog):
             embed.description = "Este servidor aún no tiene ninguna configuración guardada.\nUsa los comandos `/configurar_*` para empezar."
             return await ctx.send(embed=embed, ephemeral=True)
 
-        canal_bienvenida_id, canal_modlog_id, rol_miembro_id, roles_recompensa_json, canal_reglas_id, canal_verificacion_id = conf
+        # Índices: 0-bienvenida, 1-modlog, 2-rol, 3-recompensas, 4-reglas,
+        #          5-verificacion, 6-confesiones, 7-cumpleanos, 8-logs,
+        #          9-antispam_on, 10-antispam_cfg
+
+        # Función auxiliar para mostrar canales
+        def _canal_valor(idx, nombre_no_config="*No configurado*"):
+            if conf[idx]:
+                canal = ctx.guild.get_channel(int(conf[idx]))
+                return canal.mention if canal else f"ID: {conf[idx]} (no encontrado)"
+            return nombre_no_config
 
         # Canal de bienvenida
-        if canal_bienvenida_id:
-            canal = ctx.guild.get_channel(int(canal_bienvenida_id))
-            embed.add_field(name="📢 Canal de Bienvenida", value=canal.mention if canal else f"ID: {canal_bienvenida_id} (no encontrado)", inline=False)
-        else:
-            embed.add_field(name="📢 Canal de Bienvenida", value="*No configurado*", inline=False)
+        embed.add_field(name="📢 Canal de Bienvenida", value=_canal_valor(0), inline=False)
 
         # Canal de modlog
-        if canal_modlog_id:
-            canal = ctx.guild.get_channel(int(canal_modlog_id))
-            embed.add_field(name="📋 Canal de Modlog", value=canal.mention if canal else f"ID: {canal_modlog_id} (no encontrado)", inline=False)
-        else:
-            embed.add_field(name="📋 Canal de Modlog", value="*No configurado*", inline=False)
+        embed.add_field(name="📋 Canal de Modlog", value=_canal_valor(1), inline=False)
 
         # Canal de reglas
-        if canal_reglas_id:
-            canal = ctx.guild.get_channel(int(canal_reglas_id))
-            embed.add_field(name="📜 Canal de Reglas", value=canal.mention if canal else f"ID: {canal_reglas_id} (no encontrado)", inline=False)
-        else:
-            embed.add_field(name="📜 Canal de Reglas", value="*No configurado*", inline=False)
+        embed.add_field(name="📜 Canal de Reglas", value=_canal_valor(4), inline=False)
 
         # Canal de verificación
-        if canal_verificacion_id:
-            canal = ctx.guild.get_channel(int(canal_verificacion_id))
-            embed.add_field(name="✅ Canal de Verificación", value=canal.mention if canal else f"ID: {canal_verificacion_id} (no encontrado)", inline=False)
-        else:
-            embed.add_field(name="✅ Canal de Verificación", value="*No configurado*", inline=False)
+        embed.add_field(name="✅ Canal de Verificación", value=_canal_valor(5), inline=False)
+
+        # Canal de logs avanzados
+        embed.add_field(name="📝 Canal de Logs Avanzados", value=_canal_valor(8), inline=False)
+
+        # Canal de confesiones
+        embed.add_field(name="🤫 Canal de Confesiones", value=_canal_valor(6), inline=False)
+
+        # Canal de cumpleaños
+        embed.add_field(name="🎂 Canal de Cumpleaños", value=_canal_valor(7), inline=False)
 
         # Rol de verificación
-        if rol_miembro_id:
-            rol = ctx.guild.get_role(int(rol_miembro_id))
-            embed.add_field(name="🛡️ Rol de Verificación", value=rol.mention if rol else f"ID: {rol_miembro_id} (no encontrado)", inline=False)
+        if conf[2]:
+            rol = ctx.guild.get_role(int(conf[2]))
+            embed.add_field(name="🛡️ Rol de Verificación", value=rol.mention if rol else f"ID: {conf[2]} (no encontrado)", inline=False)
         else:
             embed.add_field(name="🛡️ Rol de Verificación", value="*No configurado*", inline=False)
 
+        # Anti-spam
+        antispam_estado = "✅ Activado" if conf[9] else "❌ Desactivado"
+        embed.add_field(name="🔇 Anti-Spam", value=antispam_estado, inline=False)
+
         # Roles de recompensa
-        if roles_recompensa_json:
-            roles_dict = json.loads(roles_recompensa_json)
+        if conf[3]:
+            roles_dict = json.loads(conf[3])
             if roles_dict:
                 lineas = []
                 for nivel_str, rol_id_str in sorted(roles_dict.items(), key=lambda x: int(x[0])):
@@ -224,4 +230,3 @@ class Configuracion(commands.Cog):
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Configuracion(bot))
-
