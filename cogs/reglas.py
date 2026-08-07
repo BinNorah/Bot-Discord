@@ -58,9 +58,9 @@ class Reglas(commands.Cog):
             inline=False
         )
         # Buscar roles por coincidencia parcial (funciona aunque tengan caracteres especiales)
-        rol_mod = next((r for r in ctx.guild.roles if "Moderador" in r.name), None)
+        rol_mod = next((r for r in ctx.guild.roles if "MOD" in r.name), None)
         rol_admin = next((r for r in ctx.guild.roles if "Administrador" in r.name), None)
-        mention_mod = rol_mod.mention if rol_mod else "@MOD"
+        mention_mod = rol_mod.mention if rol_mod else "@Moderador"
         mention_admin = rol_admin.mention if rol_admin else "@Administrador"
 
         embed.add_field(
