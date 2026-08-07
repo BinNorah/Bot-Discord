@@ -101,6 +101,44 @@ class Configuracion(commands.Cog):
         )
         await ctx.send(embed=embed, ephemeral=True)
 
+    # ─── /configurar_reglas ───────────────────────────────────────────
+
+    @commands.hybrid_command(
+        name="configurar_reglas",
+        description="Establece el canal donde se publicarán las reglas del servidor."
+    )
+    @commands.has_permissions(administrator=True)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.describe(canal="El canal de texto para las reglas")
+    async def configurar_reglas(self, ctx: commands.Context, canal: discord.TextChannel):
+        await db.guardar_canal_reglas(str(ctx.guild.id), str(canal.id))
+
+        embed = discord.Embed(
+            title="✅ Canal de reglas configurado",
+            description=f"Las reglas se publicarán en {canal.mention}.",
+            color=config.COLOR_EXITO
+        )
+        await ctx.send(embed=embed, ephemeral=True)
+
+    # ─── /configurar_verificacion ─────────────────────────────────────
+
+    @commands.hybrid_command(
+        name="configurar_verificacion",
+        description="Establece el canal donde se publicará el panel de verificación."
+    )
+    @commands.has_permissions(administrator=True)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.describe(canal="El canal de texto para la verificación")
+    async def configurar_verificacion(self, ctx: commands.Context, canal: discord.TextChannel):
+        await db.guardar_canal_verificacion(str(ctx.guild.id), str(canal.id))
+
+        embed = discord.Embed(
+            title="✅ Canal de verificación configurado",
+            description=f"El panel de verificación se publicará en {canal.mention}.",
+            color=config.COLOR_EXITO
+        )
+        await ctx.send(embed=embed, ephemeral=True)
+
     # ─── /ver_configuracion ──────────────────────────────────────────
 
     @commands.hybrid_command(
@@ -121,7 +159,7 @@ class Configuracion(commands.Cog):
             embed.description = "Este servidor aún no tiene ninguna configuración guardada.\nUsa los comandos `/configurar_*` para empezar."
             return await ctx.send(embed=embed, ephemeral=True)
 
-        canal_bienvenida_id, canal_modlog_id, rol_miembro_id, roles_recompensa_json = conf
+        canal_bienvenida_id, canal_modlog_id, rol_miembro_id, roles_recompensa_json, canal_reglas_id, canal_verificacion_id = conf
 
         # Canal de bienvenida
         if canal_bienvenida_id:
@@ -136,6 +174,20 @@ class Configuracion(commands.Cog):
             embed.add_field(name="📋 Canal de Modlog", value=canal.mention if canal else f"ID: {canal_modlog_id} (no encontrado)", inline=False)
         else:
             embed.add_field(name="📋 Canal de Modlog", value="*No configurado*", inline=False)
+
+        # Canal de reglas
+        if canal_reglas_id:
+            canal = ctx.guild.get_channel(int(canal_reglas_id))
+            embed.add_field(name="📜 Canal de Reglas", value=canal.mention if canal else f"ID: {canal_reglas_id} (no encontrado)", inline=False)
+        else:
+            embed.add_field(name="📜 Canal de Reglas", value="*No configurado*", inline=False)
+
+        # Canal de verificación
+        if canal_verificacion_id:
+            canal = ctx.guild.get_channel(int(canal_verificacion_id))
+            embed.add_field(name="✅ Canal de Verificación", value=canal.mention if canal else f"ID: {canal_verificacion_id} (no encontrado)", inline=False)
+        else:
+            embed.add_field(name="✅ Canal de Verificación", value="*No configurado*", inline=False)
 
         # Rol de verificación
         if rol_miembro_id:
@@ -159,8 +211,17 @@ class Configuracion(commands.Cog):
         else:
             embed.add_field(name="🎖️ Recompensas por Nivel", value="*No configuradas*", inline=False)
 
+        # Cantidad de reglas
+        reglas = await db.obtener_reglas(str(ctx.guild.id))
+        embed.add_field(
+            name="📝 Reglas del Servidor",
+            value=f"**{len(reglas)}** reglas configuradas" if reglas else "*Sin reglas — usa `/agregar_regla`*",
+            inline=False
+        )
+
         await ctx.send(embed=embed, ephemeral=True)
 
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Configuracion(bot))
+

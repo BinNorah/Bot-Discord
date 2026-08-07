@@ -45,15 +45,33 @@ class Verificacion(commands.Cog):
         self.bot = bot
         bot.add_view(BotonVerificacion())  # registra el botón como persistente al reiniciar el bot
 
-    @commands.hybrid_command(name="enviarverificacion", help="Publica el panel de verificación en este canal.")
+    @commands.hybrid_command(name="enviarverificacion", help="Publica el panel de verificación en el canal configurado o el actual.")
     @commands.has_permissions(administrator=True)
     async def enviarverificacion(self, ctx):
+        # Determinar el canal destino
+        conf = await db.obtener_configuracion(str(ctx.guild.id))
+        canal_destino = ctx.channel  # Por defecto, el canal actual
+
+        if conf and conf[5]:  # canal_verificacion_id está en la posición 5
+            canal_configurado = ctx.guild.get_channel(int(conf[5]))
+            if canal_configurado:
+                canal_destino = canal_configurado
+
         embed = discord.Embed(
             title="Verificación del servidor",
             description="Lee las reglas del servidor y presiona el botón de abajo para desbloquear todo el contenido.",
             color=config.COLOR_PRINCIPAL,
         )
-        await ctx.send(embed=embed, view=BotonVerificacion())
+        await canal_destino.send(embed=embed, view=BotonVerificacion())
+
+        # Confirmar al admin
+        if canal_destino != ctx.channel:
+            await ctx.send(
+                f"✅ Panel de verificación publicado en {canal_destino.mention}.",
+                ephemeral=True
+            )
+        else:
+            await ctx.send("✅ Panel de verificación publicado.", ephemeral=True)
 
 async def setup(bot):
     await bot.add_cog(Verificacion(bot))

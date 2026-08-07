@@ -6,20 +6,33 @@ class MenuAyuda(discord.ui.Select):
     def __init__(self, bot):
         self.bot = bot
         opciones = [
+            discord.SelectOption(label="Configuración", description="Comandos para configurar canales y roles.", emoji="⚙️", value="configuracion"),
+            discord.SelectOption(label="Moderación", description="Comandos para administrar el servidor.", emoji="🛡️", value="moderacion"),
+            discord.SelectOption(label="Reglas", description="Gestión de reglas del servidor.", emoji="📜", value="reglas"),
+            discord.SelectOption(label="Niveles", description="Sistema de experiencia y economía.", emoji="⭐", value="niveles"),
             discord.SelectOption(label="Básico", description="Comandos de información y utilidad.", emoji="ℹ️", value="basico"),
             discord.SelectOption(label="Diversión", description="Minijuegos y comandos de azar.", emoji="🎲", value="diversion"),
-            discord.SelectOption(label="Moderación", description="Comandos para administrar el servidor.", emoji="🛡️", value="moderacion"),
-            discord.SelectOption(label="Niveles", description="Sistema de experiencia y economía.", emoji="⭐", value="niveles")
         ]
         super().__init__(placeholder="Selecciona una categoría de comandos...", min_values=1, max_values=1, options=opciones)
 
     async def callback(self, interaction: discord.Interaction):
         # Mapeo de categorías con sus descripciones
         categorias = {
+            "configuracion": (
+                "⚙️ Comandos de Configuración",
+                "`.configurar_bienvenida`, `.configurar_modlog`, `.configurar_reglas`, `.configurar_verificacion`, `.configurar_rol_miembro`, `.configurar_recompensa`, `.ver_configuracion`"
+            ),
+            "moderacion": (
+                "🛡️ Comandos de Moderación",
+                "`.kick`, `.ban`, `.unban`, `.mute`, `.unmute`, `.clear`, `.warn`, `.historial`"
+            ),
+            "reglas": (
+                "📜 Gestión de Reglas",
+                "`.agregar_regla`, `.eliminar_regla`, `.editar_regla`, `.ver_reglas`, `.publicar_reglas`"
+            ),
+            "niveles": ("⭐ Sistema de Niveles", "`.perfil`"),
             "basico": ("ℹ️ Comandos Básicos", "`.ping`, `.info`, `.avatar`"),
             "diversion": ("🎲 Comandos de Diversión", "`.moneda`, `.dado`, `.8ball`"),
-            "moderacion": ("🛡️ Comandos de Moderación", "`.kick`, `.ban`, `.unban`, `.mute`, `.unmute`, `.clear`, `.warn`, `.historial`"),
-            "niveles": ("⭐ Sistema de Niveles", "`.perfil`")
         }
 
         seleccion = self.values[0]
@@ -54,3 +67,4 @@ class Ayuda(commands.Cog):
 
 async def setup(bot):
     await bot.add_cog(Ayuda(bot))
+
