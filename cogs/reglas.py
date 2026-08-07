@@ -17,7 +17,7 @@ class Reglas(commands.Cog):
                 "¡Hola miembro nuevo! ✨ Bienvenido/a a nuestra comunidad. "
                 "Para mantener una convivencia hermosa, pacífica y llena de buena "
                 "energía, te pedimos que sigas detalladamente nuestro reglamento "
-                "oficial uwu:"
+                "oficial:"
             ),
             color=discord.Color.from_rgb(255, 182, 213)  # rosa pastel, cambia si quieres
         )
