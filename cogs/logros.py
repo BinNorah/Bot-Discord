@@ -97,11 +97,17 @@ class Logros(commands.Cog):
             embed.set_thumbnail(url=miembro.display_avatar.url)
             embed.set_footer(text="Usa /logros para ver todos tus logros")
 
+            async def _borrar_despues(m):
+                await asyncio.sleep(30)
+                try:
+                    await m.delete()
+                except Exception:
+                    pass
+
             try:
                 msg = await canal.send(embed=embed)
-                # Borrar automáticamente el logro después de 30 segundos
-                await asyncio.sleep(30)
-                await msg.delete()
+                # Borrar en segundo plano sin bloquear el handler
+                asyncio.create_task(_borrar_despues(msg))
             except Exception:
                 pass
 
@@ -130,9 +136,11 @@ class Logros(commands.Cog):
         elif total == 1000:
             await self._otorgar_y_notificar(mensaje.channel, mensaje.author, "1000_mensajes")
 
-        # ─── Logro: Noctámbulo (2 AM - 5 AM hora del mensaje) ────
-        hora = mensaje.created_at.hour  # UTC
-        if 2 <= hora < 5:
+        # ─── Logro: Noctámbulo (2 AM - 5 AM hora GMT-5) ─────────
+        # mensaje.created_at está en UTC; GMT-5 = UTC - 5 horas
+        import datetime
+        hora_local = (mensaje.created_at - datetime.timedelta(hours=5)).hour
+        if 2 <= hora_local < 5:
             await self._otorgar_y_notificar(mensaje.channel, mensaje.author, "noctambulo")
 
         # ─── Logros por nivel (leer el nivel actual) ──────────────
