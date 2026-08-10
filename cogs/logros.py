@@ -1,3 +1,4 @@
+import asyncio
 import logging
 
 import discord
@@ -97,7 +98,10 @@ class Logros(commands.Cog):
             embed.set_footer(text="Usa /logros para ver todos tus logros")
 
             try:
-                await canal.send(embed=embed)
+                msg = await canal.send(embed=embed)
+                # Borrar automáticamente el logro después de 30 segundos
+                await asyncio.sleep(30)
+                await msg.delete()
             except Exception:
                 pass
 
