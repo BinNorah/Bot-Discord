@@ -83,7 +83,7 @@ class AntiSpam(commands.Cog):
                 t for t in timestamps if ahora - t < 5
             ]
             if len(self._mensajes_recientes[guild_id][usuario_id]) >= 5:
-                infraccion = "🚫 **Flood detectado** — Estás enviando mensajes demasiado rápido."
+                infraccion = " **Flood detectado** — Estás enviando mensajes demasiado rápido."
                 self._mensajes_recientes[guild_id][usuario_id].clear()
 
         # ─── Detección 2: Links no permitidos ─────────────────────
@@ -98,7 +98,7 @@ class AntiSpam(commands.Cog):
             for url in urls:
                 permitida = any(dominio in url.lower() for dominio in whitelist)
                 if not permitida:
-                    infraccion = "🔗 **Link no permitido detectado** — No puedes compartir ese enlace aquí."
+                    infraccion = " **Link no permitido detectado** — No puedes compartir ese enlace aquí."
                     break
 
         # ─── Detección 3: Texto repetido (3+ mensajes idénticos) ──
@@ -110,14 +110,14 @@ class AntiSpam(commands.Cog):
                 self._contenidos_recientes[guild_id][usuario_id] = contenidos[-5:]
             contenidos = self._contenidos_recientes[guild_id][usuario_id]
             if len(contenidos) >= 3 and all(c == contenidos[-1] for c in contenidos[-3:]):
-                infraccion = "🔁 **Mensaje repetido detectado** — No envíes el mismo mensaje varias veces."
+                infraccion = " **Mensaje repetido detectado** — No envíes el mismo mensaje varias veces."
                 self._contenidos_recientes[guild_id][usuario_id].clear()
 
         # ─── Detección 4: Mentions masivas (5+ en un mensaje) ─────
         if not infraccion and cfg.get("menciones", True):
             total_mentions = len(mensaje.mentions) + len(mensaje.role_mentions)
             if total_mentions >= 5:
-                infraccion = "📢 **Exceso de menciones** — No puedes mencionar a tantas personas/roles a la vez."
+                infraccion = " **Exceso de menciones** — No puedes mencionar a tantas personas/roles a la vez."
 
         # ─── Acción: eliminar mensaje + advertencia ───────────────
         if infraccion:
@@ -131,7 +131,7 @@ class AntiSpam(commands.Cog):
 
             # Notificar al usuario
             embed = discord.Embed(
-                title="⚠️  Anti-Spam",
+                title="  Anti-Spam",
                 description=f"{infraccion}\n\n**Advertencia {strikes}/3**",
                 color=config.COLOR_ADVERTENCIA
             )
@@ -157,7 +157,7 @@ class AntiSpam(commands.Cog):
                     )
 
                     embed_mute = discord.Embed(
-                        title="🔇  Silencio automático",
+                        title="  Silencio automático",
                         description=(
                             f"{mensaje.author.mention} ha sido silenciado por **10 minutos** "
                             f"por infracciones repetidas de anti-spam."
@@ -174,7 +174,7 @@ class AntiSpam(commands.Cog):
                 canal_log = mensaje.guild.get_channel(int(conf[1]))
                 if canal_log:
                     embed_log = discord.Embed(
-                        title="🛡️  Anti-Spam — Infracción",
+                        title="  Anti-Spam — Infracción",
                         description=(
                             f"**Usuario:** {mensaje.author.mention}\n"
                             f"**Canal:** {mensaje.channel.mention}\n"
@@ -224,15 +224,15 @@ class AntiSpam(commands.Cog):
         if guild_id in self._config_cache:
             del self._config_cache[guild_id]
 
-        estado = "✅ activado" if activar else "❌ desactivado"
+        estado = " activado" if activar else " desactivado"
         embed = discord.Embed(
-            title=f"🛡️  Anti-Spam {estado}",
+            title=f"  Anti-Spam {estado}",
             description=(
                 "**Filtros activos:**\n"
-                "• 🚫 Flood (5+ msgs en 5s)\n"
-                "• 🔗 Links no permitidos\n"
-                "• 🔁 Mensajes repetidos\n"
-                "• 📢 Menciones masivas (5+)\n\n"
+                "•  Flood (5+ msgs en 5s)\n"
+                "•  Links no permitidos\n"
+                "•  Mensajes repetidos\n"
+                "•  Menciones masivas (5+)\n\n"
                 "**Acción:** Eliminar mensaje + advertencia\n"
                 "**3 strikes** → Silencio de 10 minutos"
             ) if activar else "El sistema anti-spam ha sido desactivado.",

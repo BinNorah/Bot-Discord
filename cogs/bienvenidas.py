@@ -170,21 +170,7 @@ class Bienvenidas(commands.Cog):
 
         embed.set_footer(text=f"Norah | Miembros totales: {miembro.guild.member_count}")
 
-        # Intentar generar tarjeta con Pillow
-        if PILLOW_DISPONIBLE:
-            try:
-                archivo = await _generar_tarjeta_bienvenida(miembro)
-                embed.set_image(url="attachment://bienvenida.png")
-                await canal.send(
-                    content=f"Bienvenido {miembro.mention} a {miembro.guild.name}!",
-                    file=archivo,
-                    embed=embed
-                )
-                return
-            except Exception:
-                logger.exception("Error al generar tarjeta de bienvenida, usando fallback.")
-
-        # Fallback: GIF original
+        # Usar el GIF de bienvenida configurado en la carpeta gif/
         if os.path.exists(RUTA_GIF_BIENVENIDA):
             archivo = discord.File(RUTA_GIF_BIENVENIDA, filename="bienvenida.gif")
             embed.set_image(url="attachment://bienvenida.gif")

@@ -52,7 +52,7 @@ class Estadisticas(commands.Cog):
 
         # Construir embed
         embed = discord.Embed(
-            title=f"📈  Estadísticas de {guild.name}",
+            title=f"  Estadísticas de {guild.name}",
             color=config.COLOR_INFO
         )
 
@@ -64,7 +64,7 @@ class Estadisticas(commands.Cog):
 
         # Miembros
         embed.add_field(
-            name="👥  Miembros",
+            name="  Miembros",
             value=(
                 f"**Total:** {total_miembros}\n"
                 f"**Humanos:** {humanos}\n"
@@ -83,14 +83,14 @@ class Estadisticas(commands.Cog):
         if canales_foro > 0:
             valor_canales += f"\n**Foros:** {canales_foro}"
         embed.add_field(
-            name="💬  Canales",
+            name="  Canales",
             value=valor_canales,
             inline=True
         )
 
         # Servidor
         embed.add_field(
-            name="🏷️  Servidor",
+            name="  Servidor",
             value=(
                 f"**Roles:** {roles}\n"
                 f"**Emojis:** {emojis}\n"
@@ -103,7 +103,7 @@ class Estadisticas(commands.Cog):
         # Boosts
         barra_boost = "▰" * min(nivel_boost, 3) + "▱" * (3 - min(nivel_boost, 3))
         embed.add_field(
-            name="💎  Boosts",
+            name="  Boosts",
             value=(
                 f"**Nivel:** {nivel_boost} [{barra_boost}]\n"
                 f"**Boosts:** {boosts}\n"
@@ -114,7 +114,7 @@ class Estadisticas(commands.Cog):
 
         # Dueño y Fecha
         embed.add_field(
-            name="📅  Información",
+            name="  Información",
             value=(
                 f"**Dueño:** {guild.owner.mention if guild.owner else 'Desconocido'}\n"
                 f"**Creado:** <t:{fecha_creacion}:D>\n"
@@ -125,7 +125,7 @@ class Estadisticas(commands.Cog):
 
         # ID
         embed.add_field(
-            name="🔑  ID del Servidor",
+            name="  ID del Servidor",
             value=f"`{guild.id}`",
             inline=True
         )

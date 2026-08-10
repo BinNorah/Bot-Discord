@@ -24,7 +24,7 @@ class Sorteos(commands.Cog):
 
     @commands.hybrid_command(
         name="sorteo",
-        description="Crea un sorteo con reacciones. Los participantes reaccionan con 🎉."
+        description="Crea un sorteo con reacciones. Los participantes reaccionan con ."
     )
     @commands.has_permissions(manage_guild=True)
     @app_commands.default_permissions(manage_guild=True)
@@ -39,24 +39,24 @@ class Sorteos(commands.Cog):
         segundos = self._parsear_tiempo(duracion)
         if segundos is None or segundos < 10:
             return await ctx.send(
-                "❌ Formato de duración inválido. Usa: `30s`, `10m`, `2h`, `1d`",
+                " Formato de duración inválido. Usa: `30s`, `10m`, `2h`, `1d`",
                 ephemeral=True
             )
 
         if ganadores < 1 or ganadores > 20:
-            return await ctx.send("❌ La cantidad de ganadores debe ser entre 1 y 20.", ephemeral=True)
+            return await ctx.send(" La cantidad de ganadores debe ser entre 1 y 20.", ephemeral=True)
 
         fecha_fin = time.time() + segundos
         timestamp_discord = int(fecha_fin)
 
         embed = discord.Embed(
-            title="🎉  ¡SORTEO!  🎉",
+            title="  ¡SORTEO!  ",
             description=(
                 f"**Premio:** {premio}\n\n"
-                f"**Reacciona con** 🎉 **para participar!**\n\n"
-                f"⏰ **Termina:** <t:{timestamp_discord}:R>\n"
-                f"🏆 **Ganadores:** {ganadores}\n"
-                f"👤 **Organizado por:** {ctx.author.mention}"
+                f"**Reacciona con**  **para participar!**\n\n"
+                f" **Termina:** <t:{timestamp_discord}:R>\n"
+                f" **Ganadores:** {ganadores}\n"
+                f" **Organizado por:** {ctx.author.mention}"
             ),
             color=0xFF69B4  # Rosa
         )
@@ -67,7 +67,7 @@ class Sorteos(commands.Cog):
             embed.set_thumbnail(url=ctx.guild.icon.url)
 
         msg = await ctx.send(embed=embed)
-        await msg.add_reaction("🎉")
+        await msg.add_reaction("")
 
         # Guardar en BD
         await db.crear_sorteo(
@@ -93,29 +93,29 @@ class Sorteos(commands.Cog):
     async def re_sorteo(self, ctx: commands.Context, mensaje_id: str):
         sorteo = await db.obtener_sorteo_por_mensaje(mensaje_id)
         if not sorteo:
-            return await ctx.send("❌ No encontré un sorteo con ese ID de mensaje.", ephemeral=True)
+            return await ctx.send(" No encontré un sorteo con ese ID de mensaje.", ephemeral=True)
 
         _, servidor_id, canal_id, _, premio, _, _, ganadores_count = sorteo
         canal = ctx.guild.get_channel(int(canal_id))
         if not canal:
-            return await ctx.send("❌ No encontré el canal del sorteo original.", ephemeral=True)
+            return await ctx.send(" No encontré el canal del sorteo original.", ephemeral=True)
 
         try:
             msg = await canal.fetch_message(int(mensaje_id))
         except discord.NotFound:
-            return await ctx.send("❌ No encontré el mensaje del sorteo.", ephemeral=True)
+            return await ctx.send(" No encontré el mensaje del sorteo.", ephemeral=True)
 
         # Obtener participantes
         participantes = []
         for reaction in msg.reactions:
-            if str(reaction.emoji) == "🎉":
+            if str(reaction.emoji) == "":
                 async for user in reaction.users():
                     if not user.bot:
                         participantes.append(user)
                 break
 
         if not participantes:
-            return await ctx.send("❌ No hay participantes en este sorteo.", ephemeral=True)
+            return await ctx.send(" No hay participantes en este sorteo.", ephemeral=True)
 
         ganadores_seleccionados = random.sample(
             participantes, min(ganadores_count, len(participantes))
@@ -123,12 +123,12 @@ class Sorteos(commands.Cog):
         menciones = ", ".join(g.mention for g in ganadores_seleccionados)
 
         embed = discord.Embed(
-            title="🎉  ¡RE-SORTEO!  🎉",
-            description=f"**Premio:** {premio}\n\n🏆 **Nuevos ganadores:** {menciones}",
+            title="  ¡RE-SORTEO!  ",
+            description=f"**Premio:** {premio}\n\n **Nuevos ganadores:** {menciones}",
             color=0xFFD700
         )
         await canal.send(embed=embed)
-        await ctx.send("✅ Re-sorteo completado.", ephemeral=True)
+        await ctx.send(" Re-sorteo completado.", ephemeral=True)
 
     @tasks.loop(seconds=30)
     async def revisar_sorteos(self):
@@ -159,10 +159,10 @@ class Sorteos(commands.Cog):
                 except discord.NotFound:
                     continue
 
-                # Obtener participantes de la reacción 🎉
+                # Obtener participantes de la reacción 
                 participantes = []
                 for reaction in msg.reactions:
-                    if str(reaction.emoji) == "🎉":
+                    if str(reaction.emoji) == "":
                         async for user in reaction.users():
                             if not user.bot:
                                 participantes.append(user)
@@ -170,8 +170,8 @@ class Sorteos(commands.Cog):
 
                 if not participantes:
                     embed = discord.Embed(
-                        title="🎉  Sorteo Finalizado  🎉",
-                        description=f"**Premio:** {premio}\n\n😢 No hubo participantes.",
+                        title="  Sorteo Finalizado  ",
+                        description=f"**Premio:** {premio}\n\n No hubo participantes.",
                         color=0x808080
                     )
                     await canal.send(embed=embed)
@@ -183,11 +183,11 @@ class Sorteos(commands.Cog):
                 menciones = ", ".join(g.mention for g in ganadores_seleccionados)
 
                 embed = discord.Embed(
-                    title="🎉  ¡SORTEO FINALIZADO!  🎉",
+                    title="  ¡SORTEO FINALIZADO!  ",
                     description=(
                         f"**Premio:** {premio}\n\n"
-                        f"🏆 **{'Ganadores' if len(ganadores_seleccionados) > 1 else 'Ganador'}:** {menciones}\n\n"
-                        f"¡Felicidades! 🥳"
+                        f" **{'Ganadores' if len(ganadores_seleccionados) > 1 else 'Ganador'}:** {menciones}\n\n"
+                        f"¡Felicidades! "
                     ),
                     color=0x2ECC71
                 )
@@ -197,7 +197,7 @@ class Sorteos(commands.Cog):
                 # Editar el mensaje original para mostrar que terminó
                 try:
                     embed_original = msg.embeds[0] if msg.embeds else discord.Embed()
-                    embed_original.title = "🎉  SORTEO FINALIZADO  🎉"
+                    embed_original.title = "  SORTEO FINALIZADO  "
                     embed_original.color = 0x808080
                     embed_original.set_footer(text="Este sorteo ha terminado.")
                     await msg.edit(embed=embed_original)

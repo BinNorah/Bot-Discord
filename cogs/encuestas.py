@@ -5,7 +5,7 @@ from discord.ext import commands
 import config
 
 # Emojis de números para las opciones
-EMOJIS_NUMEROS = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"]
+EMOJIS_NUMEROS = ["", "", "", "", "", "", "", "", "", ""]
 
 
 class Encuestas(commands.Cog):
@@ -50,7 +50,7 @@ class Encuestas(commands.Cog):
         descripcion = "\n\n".join(lineas)
 
         embed = discord.Embed(
-            title=f"📊  {pregunta}",
+            title=f"  {pregunta}",
             description=descripcion,
             color=0x9B59B6  # Morado
         )
@@ -73,8 +73,8 @@ class Encuestas(commands.Cog):
     @app_commands.describe(pregunta="La pregunta de la encuesta")
     async def encuesta_si_no(self, ctx: commands.Context, *, pregunta: str):
         embed = discord.Embed(
-            title=f"📊  {pregunta}",
-            description="✅ Sí\n\n❌ No",
+            title=f"  {pregunta}",
+            description=" Sí\n\n No",
             color=0x3498DB
         )
         embed.set_footer(
@@ -84,8 +84,8 @@ class Encuestas(commands.Cog):
         embed.timestamp = discord.utils.utcnow()
 
         msg = await ctx.send(embed=embed)
-        await msg.add_reaction("✅")
-        await msg.add_reaction("❌")
+        await msg.add_reaction("")
+        await msg.add_reaction("")
 
 
 async def setup(bot: commands.Bot):

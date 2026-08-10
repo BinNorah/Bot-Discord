@@ -11,57 +11,57 @@ logger = logging.getLogger("bot")
 # Definición de todos los logros
 LOGROS = {
     "primer_mensaje": {
-        "emoji": "🌱",
+        "emoji": "",
         "nombre": "Primer Mensaje",
         "descripcion": "Enviaste tu primer mensaje en el servidor."
     },
     "100_mensajes": {
-        "emoji": "💬",
+        "emoji": "",
         "nombre": "Conversador",
         "descripcion": "Alcanzaste 100 mensajes en el servidor."
     },
     "500_mensajes": {
-        "emoji": "🗣️",
+        "emoji": "",
         "nombre": "Parlanchín",
         "descripcion": "Alcanzaste 500 mensajes en el servidor."
     },
     "1000_mensajes": {
-        "emoji": "📚",
+        "emoji": "",
         "nombre": "Enciclopedia Viviente",
         "descripcion": "Alcanzaste 1,000 mensajes en el servidor."
     },
     "nivel_5": {
-        "emoji": "⭐",
+        "emoji": "",
         "nombre": "Nivel 5",
         "descripcion": "Alcanzaste el nivel 5."
     },
     "nivel_10": {
-        "emoji": "🌟",
+        "emoji": "",
         "nombre": "Nivel 10",
         "descripcion": "Alcanzaste el nivel 10."
     },
     "nivel_25": {
-        "emoji": "👑",
+        "emoji": "",
         "nombre": "Nivel 25",
         "descripcion": "Alcanzaste el nivel 25."
     },
     "nivel_50": {
-        "emoji": "💎",
+        "emoji": "",
         "nombre": "Nivel 50",
         "descripcion": "Alcanzaste el nivel 50."
     },
     "veterano_30d": {
-        "emoji": "🎖️",
+        "emoji": "",
         "nombre": "Veterano",
         "descripcion": "Llevas 30 días en el servidor."
     },
     "veterano_365d": {
-        "emoji": "🏅",
+        "emoji": "",
         "nombre": "Leyenda",
         "descripcion": "Llevas 1 año en el servidor."
     },
     "noctambulo": {
-        "emoji": "🦉",
+        "emoji": "",
         "nombre": "Noctámbulo",
         "descripcion": "Enviaste un mensaje entre las 2 AM y 5 AM."
     },
@@ -164,7 +164,7 @@ class Logros(commands.Cog):
         total_desbloqueados = len(logros_ids)
 
         embed = discord.Embed(
-            title=f"🏆  Logros de {usuario.display_name}",
+            title=f"  Logros de {usuario.display_name}",
             description=f"**{total_desbloqueados}/{total_disponibles}** logros desbloqueados",
             color=0xFFD700 if total_desbloqueados > 0 else config.COLOR_INFO
         )
@@ -172,7 +172,7 @@ class Logros(commands.Cog):
 
         # Barra de progreso
         porcentaje = int((total_desbloqueados / total_disponibles) * 10) if total_disponibles > 0 else 0
-        barra = "🟨" * porcentaje + "⬛" * (10 - porcentaje)
+        barra = "" * porcentaje + "" * (10 - porcentaje)
         embed.add_field(
             name="Progreso",
             value=f"{barra} ({total_desbloqueados}/{total_disponibles})",
@@ -185,9 +185,9 @@ class Logros(commands.Cog):
                 # Buscar la fecha
                 fecha = next((l[1] for l in logros_usuario if l[0] == logro_id), "")
                 fecha_str = f" — *{fecha.split()[0]}*" if fecha else ""
-                valor = f"✅ {logro_info['descripcion']}{fecha_str}"
+                valor = f" {logro_info['descripcion']}{fecha_str}"
             else:
-                valor = f"🔒 *{logro_info['descripcion']}*"
+                valor = f" *{logro_info['descripcion']}*"
 
             embed.add_field(
                 name=f"{logro_info['emoji']}  {logro_info['nombre']}",

@@ -28,7 +28,7 @@ class Confesiones(commands.Cog):
         conf = await db.obtener_configuracion(str(ctx.guild.id))
         if not conf or not conf[6]:  # canal_confesiones_id
             return await ctx.send(
-                "❌ No se ha configurado un canal de confesiones. "
+                " No se ha configurado un canal de confesiones. "
                 "Un administrador debe usar `/configurar_confesiones #canal`.",
                 ephemeral=True
             )
@@ -36,7 +36,7 @@ class Confesiones(commands.Cog):
         canal = ctx.guild.get_channel(int(conf[6]))
         if not canal:
             return await ctx.send(
-                "❌ No encontré el canal de confesiones configurado. "
+                " No encontré el canal de confesiones configurado. "
                 "Un administrador debe reconfigurarlo.",
                 ephemeral=True
             )
@@ -57,7 +57,7 @@ class Confesiones(commands.Cog):
 
         # Crear embed anónimo
         embed = discord.Embed(
-            title=f"🤫  Confesión #{numero}",
+            title=f"  Confesión #{numero}",
             description=mensaje,
             color=0x2C2F33  # Gris oscuro "misterioso"
         )
@@ -68,7 +68,7 @@ class Confesiones(commands.Cog):
 
         # Confirmar al usuario de forma privada
         await ctx.send(
-            "✅ Tu confesión fue enviada de forma anónima. 🤫",
+            " Tu confesión fue enviada de forma anónima. ",
             ephemeral=True
         )
 
@@ -83,7 +83,7 @@ class Confesiones(commands.Cog):
         await db.guardar_canal_confesiones(str(ctx.guild.id), str(canal.id))
 
         embed = discord.Embed(
-            title="✅  Canal de confesiones configurado",
+            title="  Canal de confesiones configurado",
             description=(
                 f"Las confesiones anónimas se enviarán a {canal.mention}.\n\n"
                 "Los miembros pueden usar `/confesar` para enviar mensajes anónimos."

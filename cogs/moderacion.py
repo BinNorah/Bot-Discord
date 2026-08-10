@@ -72,7 +72,7 @@ class Moderacion(commands.Cog):
                     break
 
         if usuario_a_desbanear is None:
-            await ctx.send("❌ No se encontró a ningún usuario baneado con ese nombre o ID en este servidor.")
+            await ctx.send(" No se encontró a ningún usuario baneado con ese nombre o ID en este servidor.")
             return
 
         try:
@@ -85,7 +85,7 @@ class Moderacion(commands.Cog):
             embed.set_footer(text=f"Moderador: {ctx.author.display_name}")
             await ctx.send(embed=embed)
         except discord.HTTPException:
-            await ctx.send("❌ Hubo un error al intentar desbanear al usuario.")
+            await ctx.send(" Hubo un error al intentar desbanear al usuario.")
 
     @commands.hybrid_command(name="mute", help="Silencia temporalmente a un miembro.")
     @commands.has_permissions(moderate_members=True)

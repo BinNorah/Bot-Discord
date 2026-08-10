@@ -64,7 +64,7 @@ class Niveles(commands.Cog):
                     if rol:
                         try:
                             await mensaje.author.add_roles(rol, reason=f"Alcanzó el nivel {nivel}")
-                            await mensaje.channel.send(f"🎖️ {mensaje.author.mention} ha desbloqueado el rol: **{rol.name}**")
+                            await mensaje.channel.send(f" {mensaje.author.mention} ha desbloqueado el rol: **{rol.name}**")
                         except discord.Forbidden:
                             pass 
 
@@ -79,14 +79,14 @@ class Niveles(commands.Cog):
         xp_siguiente = calcular_xp_necesaria(nivel)
         
         porcentaje = min(int((xp / xp_siguiente) * 10), 10)
-        barra_progreso = "🟩" * porcentaje + "⬛" * (10 - porcentaje)
+        barra_progreso = "" * porcentaje + "" * (10 - porcentaje)
 
         embed = discord.Embed(title=f"Perfil de {usuario.display_name}", color=config.COLOR_PRINCIPAL)
         embed.set_thumbnail(url=usuario.display_avatar.url)
         
         embed.add_field(name="Nivel", value=f"**{nivel}**", inline=True)
         embed.add_field(name="Experiencia", value=f"{xp} / {xp_siguiente} XP\n{barra_progreso}", inline=True)
-        embed.add_field(name="Economía", value=f"🪙 {monedas} Monedas", inline=False)
+        embed.add_field(name="Economía", value=f" {monedas} Monedas", inline=False)
         
         await ctx.send(embed=embed)
 

@@ -34,13 +34,13 @@ class Recordatorios(commands.Cog):
         segundos = self._parsear_tiempo(tiempo)
         if segundos is None or segundos < 10:
             return await ctx.send(
-                "❌ Formato de tiempo inválido. Ejemplos: `30m`, `2h`, `1d`, `1h30m`",
+                " Formato de tiempo inválido. Ejemplos: `30m`, `2h`, `1d`, `1h30m`",
                 ephemeral=True
             )
 
         if segundos > 30 * 86400:  # Máximo 30 días
             return await ctx.send(
-                "❌ El tiempo máximo es de 30 días.",
+                " El tiempo máximo es de 30 días.",
                 ephemeral=True
             )
 
@@ -56,10 +56,10 @@ class Recordatorios(commands.Cog):
         )
 
         embed = discord.Embed(
-            title="⏰  Recordatorio creado",
+            title="  Recordatorio creado",
             description=(
                 f"Te recordaré **<t:{timestamp_discord}:R>**\n\n"
-                f"📝 **Mensaje:** {mensaje}"
+                f" **Mensaje:** {mensaje}"
             ),
             color=config.COLOR_INFO
         )
@@ -83,8 +83,8 @@ class Recordatorios(commands.Cog):
                     usuario = await self.bot.fetch_user(int(usuario_id))
                     if usuario:
                         embed = discord.Embed(
-                            title="⏰  ¡Recordatorio!",
-                            description=f"📝 {mensaje}",
+                            title="  ¡Recordatorio!",
+                            description=f" {mensaje}",
                             color=0xFFD700
                         )
                         embed.set_footer(text="Recordatorio que habías programado")
@@ -100,8 +100,8 @@ class Recordatorios(commands.Cog):
                                 await canal.send(
                                     content=f"<@{usuario_id}>",
                                     embed=discord.Embed(
-                                        title="⏰  ¡Recordatorio!",
-                                        description=f"📝 {mensaje}\n\n*No pude enviarte un DM, así que te recuerdo aquí.*",
+                                        title="  ¡Recordatorio!",
+                                        description=f" {mensaje}\n\n*No pude enviarte un DM, así que te recuerdo aquí.*",
                                         color=0xFFD700
                                     )
                                 )

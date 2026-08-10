@@ -51,7 +51,7 @@ class LogsAvanzados(commands.Cog):
         contenido_despues = despues.content[:500] if despues.content else "*vacío*"
 
         embed = discord.Embed(
-            title="✏️  Mensaje editado",
+            title="  Mensaje editado",
             color=COLORES_LOG["edicion"]
         )
         embed.add_field(name="Autor", value=antes.author.mention, inline=True)
@@ -80,7 +80,7 @@ class LogsAvanzados(commands.Cog):
         contenido = mensaje.content[:800] if mensaje.content else "*sin texto*"
 
         embed = discord.Embed(
-            title="🗑️  Mensaje eliminado",
+            title="  Mensaje eliminado",
             color=COLORES_LOG["eliminacion"]
         )
         embed.add_field(name="Autor", value=mensaje.author.mention, inline=True)
@@ -114,7 +114,7 @@ class LogsAvanzados(commands.Cog):
         # Cambio de nickname
         if antes.nick != despues.nick:
             embed = discord.Embed(
-                title="📝  Cambio de apodo",
+                title="  Cambio de apodo",
                 color=COLORES_LOG["nickname"]
             )
             embed.add_field(name="Usuario", value=despues.mention, inline=True)
@@ -136,20 +136,20 @@ class LogsAvanzados(commands.Cog):
 
         if roles_agregados or roles_removidos:
             embed = discord.Embed(
-                title="🏷️  Cambio de roles",
+                title="  Cambio de roles",
                 color=COLORES_LOG["roles"]
             )
             embed.add_field(name="Usuario", value=despues.mention, inline=True)
 
             if roles_agregados:
                 embed.add_field(
-                    name="✅ Roles agregados",
+                    name=" Roles agregados",
                     value=", ".join(r.mention for r in roles_agregados),
                     inline=False
                 )
             if roles_removidos:
                 embed.add_field(
-                    name="❌ Roles removidos",
+                    name=" Roles removidos",
                     value=", ".join(r.mention for r in roles_removidos),
                     inline=False
                 )
@@ -179,21 +179,21 @@ class LogsAvanzados(commands.Cog):
         if antes.channel is None and despues.channel is not None:
             # Entró a un canal de voz
             embed = discord.Embed(
-                title="🔊  Entró a canal de voz",
+                title="  Entró a canal de voz",
                 description=f"{miembro.mention} se unió a **{despues.channel.name}**",
                 color=COLORES_LOG["voz"]
             )
         elif antes.channel is not None and despues.channel is None:
             # Salió de un canal de voz
             embed = discord.Embed(
-                title="🔇  Salió de canal de voz",
+                title="  Salió de canal de voz",
                 description=f"{miembro.mention} dejó **{antes.channel.name}**",
                 color=0x95A5A6
             )
         elif antes.channel != despues.channel:
             # Cambió de canal
             embed = discord.Embed(
-                title="🔀  Cambió de canal de voz",
+                title="  Cambió de canal de voz",
                 description=(
                     f"{miembro.mention} se movió de **{antes.channel.name}** "
                     f"a **{despues.channel.name}**"
@@ -218,7 +218,7 @@ class LogsAvanzados(commands.Cog):
             return
 
         embed = discord.Embed(
-            title="🔨  Usuario baneado",
+            title="  Usuario baneado",
             description=f"**{usuario}** ({usuario.mention}) fue baneado del servidor.",
             color=COLORES_LOG["ban"]
         )
@@ -238,7 +238,7 @@ class LogsAvanzados(commands.Cog):
             return
 
         embed = discord.Embed(
-            title="🔓  Usuario desbaneado",
+            title="  Usuario desbaneado",
             description=f"**{usuario}** ({usuario.id}) fue desbaneado del servidor.",
             color=COLORES_LOG["unban"]
         )
@@ -264,16 +264,16 @@ class LogsAvanzados(commands.Cog):
         await db.guardar_canal_logs(str(ctx.guild.id), str(canal.id))
 
         embed = discord.Embed(
-            title="✅  Canal de logs configurado",
+            title="  Canal de logs configurado",
             description=(
                 f"Los logs avanzados se enviarán a {canal.mention}.\n\n"
                 "**Eventos registrados:**\n"
-                "• ✏️ Ediciones de mensajes\n"
-                "• 🗑️ Eliminaciones de mensajes\n"
-                "• 📝 Cambios de apodo\n"
-                "• 🏷️ Cambios de roles\n"
-                "• 🔊 Entrada/salida de canales de voz\n"
-                "• 🔨 Baneos y desbaneos"
+                "•  Ediciones de mensajes\n"
+                "•  Eliminaciones de mensajes\n"
+                "•  Cambios de apodo\n"
+                "•  Cambios de roles\n"
+                "•  Entrada/salida de canales de voz\n"
+                "•  Baneos y desbaneos"
             ),
             color=config.COLOR_EXITO
         )

@@ -13,8 +13,7 @@ class VistaEnlaces(discord.ui.View):
             discord.ui.Button(
                 label="Perfil de BinNorah", 
                 url="https://discord.com/users/1174495346265706537",  
-                style=discord.ButtonStyle.link,
-                emoji="🔗"
+                style=discord.ButtonStyle.link
             )
         )
 

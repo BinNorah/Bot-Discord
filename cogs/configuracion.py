@@ -26,7 +26,7 @@ class Configuracion(commands.Cog):
         await db.guardar_canal_bienvenida(str(ctx.guild.id), str(canal.id))
 
         embed = discord.Embed(
-            title="✅ Canal de bienvenida configurado",
+            title=" Canal de bienvenida configurado",
             description=f"Las bienvenidas y despedidas se enviarán a {canal.mention}.",
             color=config.COLOR_EXITO
         )
@@ -45,7 +45,7 @@ class Configuracion(commands.Cog):
         await db.guardar_canal_modlog(str(ctx.guild.id), str(canal.id))
 
         embed = discord.Embed(
-            title="✅ Canal de modlog configurado",
+            title=" Canal de modlog configurado",
             description=f"Los registros de moderación se enviarán a {canal.mention}.",
             color=config.COLOR_EXITO
         )
@@ -64,7 +64,7 @@ class Configuracion(commands.Cog):
         await db.guardar_rol_miembro(str(ctx.guild.id), str(rol.id))
 
         embed = discord.Embed(
-            title="✅ Rol de verificación configurado",
+            title=" Rol de verificación configurado",
             description=f"Al verificarse, los miembros recibirán el rol {rol.mention}.",
             color=config.COLOR_EXITO
         )
@@ -81,7 +81,7 @@ class Configuracion(commands.Cog):
     @app_commands.describe(nivel="El nivel requerido para obtener el rol", rol="El rol de recompensa")
     async def configurar_recompensa(self, ctx: commands.Context, nivel: int, rol: discord.Role):
         if nivel < 1:
-            return await ctx.send("❌ El nivel debe ser mayor o igual a 1.", ephemeral=True)
+            return await ctx.send(" El nivel debe ser mayor o igual a 1.", ephemeral=True)
 
         # Leer las recompensas existentes
         conf = await db.obtener_configuracion(str(ctx.guild.id))
@@ -95,7 +95,7 @@ class Configuracion(commands.Cog):
         await db.guardar_roles_recompensa(str(ctx.guild.id), roles_dict)
 
         embed = discord.Embed(
-            title="✅ Recompensa de nivel configurada",
+            title=" Recompensa de nivel configurada",
             description=f"Al alcanzar el **Nivel {nivel}**, los miembros recibirán el rol {rol.mention}.",
             color=config.COLOR_EXITO
         )
@@ -114,7 +114,7 @@ class Configuracion(commands.Cog):
         await db.guardar_canal_reglas(str(ctx.guild.id), str(canal.id))
 
         embed = discord.Embed(
-            title="✅ Canal de reglas configurado",
+            title=" Canal de reglas configurado",
             description=f"Las reglas se publicarán en {canal.mention}.",
             color=config.COLOR_EXITO
         )
@@ -133,7 +133,7 @@ class Configuracion(commands.Cog):
         await db.guardar_canal_verificacion(str(ctx.guild.id), str(canal.id))
 
         embed = discord.Embed(
-            title="✅ Canal de verificación configurado",
+            title=" Canal de verificación configurado",
             description=f"El panel de verificación se publicará en {canal.mention}.",
             color=config.COLOR_EXITO
         )
@@ -151,7 +151,7 @@ class Configuracion(commands.Cog):
         conf = await db.obtener_configuracion(str(ctx.guild.id))
 
         embed = discord.Embed(
-            title=f"⚙️ Configuración de {ctx.guild.name}",
+            title=f" Configuración de {ctx.guild.name}",
             color=config.COLOR_INFO
         )
 
@@ -171,36 +171,36 @@ class Configuracion(commands.Cog):
             return nombre_no_config
 
         # Canal de bienvenida
-        embed.add_field(name="📢 Canal de Bienvenida", value=_canal_valor(0), inline=False)
+        embed.add_field(name=" Canal de Bienvenida", value=_canal_valor(0), inline=False)
 
         # Canal de modlog
-        embed.add_field(name="📋 Canal de Modlog", value=_canal_valor(1), inline=False)
+        embed.add_field(name=" Canal de Modlog", value=_canal_valor(1), inline=False)
 
         # Canal de reglas
-        embed.add_field(name="📜 Canal de Reglas", value=_canal_valor(4), inline=False)
+        embed.add_field(name=" Canal de Reglas", value=_canal_valor(4), inline=False)
 
         # Canal de verificación
-        embed.add_field(name="✅ Canal de Verificación", value=_canal_valor(5), inline=False)
+        embed.add_field(name=" Canal de Verificación", value=_canal_valor(5), inline=False)
 
         # Canal de logs avanzados
-        embed.add_field(name="📝 Canal de Logs Avanzados", value=_canal_valor(8), inline=False)
+        embed.add_field(name=" Canal de Logs Avanzados", value=_canal_valor(8), inline=False)
 
         # Canal de confesiones
-        embed.add_field(name="🤫 Canal de Confesiones", value=_canal_valor(6), inline=False)
+        embed.add_field(name=" Canal de Confesiones", value=_canal_valor(6), inline=False)
 
         # Canal de cumpleaños
-        embed.add_field(name="🎂 Canal de Cumpleaños", value=_canal_valor(7), inline=False)
+        embed.add_field(name=" Canal de Cumpleaños", value=_canal_valor(7), inline=False)
 
         # Rol de verificación
         if conf[2]:
             rol = ctx.guild.get_role(int(conf[2]))
-            embed.add_field(name="🛡️ Rol de Verificación", value=rol.mention if rol else f"ID: {conf[2]} (no encontrado)", inline=False)
+            embed.add_field(name=" Rol de Verificación", value=rol.mention if rol else f"ID: {conf[2]} (no encontrado)", inline=False)
         else:
-            embed.add_field(name="🛡️ Rol de Verificación", value="*No configurado*", inline=False)
+            embed.add_field(name=" Rol de Verificación", value="*No configurado*", inline=False)
 
         # Anti-spam
-        antispam_estado = "✅ Activado" if conf[9] else "❌ Desactivado"
-        embed.add_field(name="🔇 Anti-Spam", value=antispam_estado, inline=False)
+        antispam_estado = " Activado" if conf[9] else " Desactivado"
+        embed.add_field(name=" Anti-Spam", value=antispam_estado, inline=False)
 
         # Roles de recompensa
         if conf[3]:
@@ -211,16 +211,16 @@ class Configuracion(commands.Cog):
                     rol = ctx.guild.get_role(int(rol_id_str))
                     nombre_rol = rol.mention if rol else f"ID: {rol_id_str}"
                     lineas.append(f"Nivel **{nivel_str}** → {nombre_rol}")
-                embed.add_field(name="🎖️ Recompensas por Nivel", value="\n".join(lineas), inline=False)
+                embed.add_field(name=" Recompensas por Nivel", value="\n".join(lineas), inline=False)
             else:
-                embed.add_field(name="🎖️ Recompensas por Nivel", value="*No configuradas*", inline=False)
+                embed.add_field(name=" Recompensas por Nivel", value="*No configuradas*", inline=False)
         else:
-            embed.add_field(name="🎖️ Recompensas por Nivel", value="*No configuradas*", inline=False)
+            embed.add_field(name=" Recompensas por Nivel", value="*No configuradas*", inline=False)
 
         # Cantidad de reglas
         reglas = await db.obtener_reglas(str(ctx.guild.id))
         embed.add_field(
-            name="📝 Reglas del Servidor",
+            name=" Reglas del Servidor",
             value=f"**{len(reglas)}** reglas configuradas" if reglas else "*Sin reglas — usa `/agregar_regla`*",
             inline=False
         )

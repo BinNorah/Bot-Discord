@@ -8,16 +8,26 @@ from discord.ext import commands
 import config
 from base_datos import db
 
-# --- Logging profesional ---
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-    handlers=[
-        logging.FileHandler("bot.log", encoding="utf-8"),
-        logging.StreamHandler(),
-    ],
-)
+# --- Logging profesional con zona horaria Latam (GMT-5) ---
+import datetime
+
+class FormatterGMT5(logging.Formatter):
+    def converter(self, timestamp):
+        dt = datetime.datetime.fromtimestamp(timestamp, tz=datetime.timezone.utc)
+        return dt.astimezone(datetime.timezone(datetime.timedelta(hours=-5))).timetuple()
+
+formatter = FormatterGMT5("%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+
+file_handler = logging.FileHandler("bot.log", encoding="utf-8")
+file_handler.setFormatter(formatter)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+
 logger = logging.getLogger("bot")
+logger.setLevel(logging.INFO)
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
 
 
 class MiBotProfesional(commands.Bot):

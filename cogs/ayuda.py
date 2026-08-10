@@ -6,20 +6,18 @@ class MenuAyuda(discord.ui.Select):
     def __init__(self, bot):
         self.bot = bot
         opciones = [
-            discord.SelectOption(label="Configuración", description="Comandos para configurar canales y roles.", emoji="⚙️", value="configuracion"),
-            discord.SelectOption(label="Moderación", description="Comandos para administrar el servidor.", emoji="🛡️", value="moderacion"),
-            discord.SelectOption(label="Reglas", description="Gestión de reglas del servidor.", emoji="📜", value="reglas"),
-            discord.SelectOption(label="Niveles", description="Sistema de experiencia y economía.", emoji="⭐", value="niveles"),
-            discord.SelectOption(label="Básico", description="Comandos de información y utilidad.", emoji="ℹ️", value="basico"),
-            discord.SelectOption(label="Diversión", description="Minijuegos y comandos de azar.", emoji="🎲", value="diversion"),
-            discord.SelectOption(label="Anuncios", description="Publica anuncios con embeds.", emoji="📢", value="anuncios"),
-            discord.SelectOption(label="Sorteos", description="Crea sorteos con reacciones.", emoji="🎁", value="sorteos"),
-            discord.SelectOption(label="Recordatorios", description="Programa recordatorios por DM.", emoji="⏰", value="recordatorios"),
-            discord.SelectOption(label="Estadísticas", description="Información del servidor.", emoji="📈", value="estadisticas"),
-            discord.SelectOption(label="Animales", description="Imágenes random de animales.", emoji="🐱", value="animales"),
-            discord.SelectOption(label="Encuestas", description="Crea encuestas con reacciones.", emoji="🧮", value="encuestas"),
-            discord.SelectOption(label="Social", description="Confesiones, cumpleaños y logros.", emoji="💬", value="social"),
-            discord.SelectOption(label="Protección", description="Anti-spam y logs avanzados.", emoji="🔇", value="proteccion"),
+            discord.SelectOption(label="Configuración", description="Comandos para configurar canales y roles.", value="configuracion"),
+            discord.SelectOption(label="Moderación", description="Comandos para administrar el servidor.", value="moderacion"),
+            discord.SelectOption(label="Niveles", description="Sistema de experiencia y economía.", value="niveles"),
+            discord.SelectOption(label="Básico", description="Comandos de información y utilidad.", value="basico"),
+            discord.SelectOption(label="Diversión", description="Minijuegos y comandos de azar.", value="diversion"),
+            discord.SelectOption(label="Anuncios", description="Publica anuncios con embeds.", value="anuncios"),
+            discord.SelectOption(label="Sorteos", description="Crea sorteos con reacciones.", value="sorteos"),
+            discord.SelectOption(label="Recordatorios", description="Programa recordatorios por DM.", value="recordatorios"),
+            discord.SelectOption(label="Estadísticas", description="Información del servidor.", value="estadisticas"),
+            discord.SelectOption(label="Encuestas", description="Crea encuestas con reacciones.", value="encuestas"),
+            discord.SelectOption(label="Social", description="Confesiones, cumpleaños y logros.", value="social"),
+            discord.SelectOption(label="Protección", description="Anti-spam y logs avanzados.", value="proteccion"),
         ]
         super().__init__(placeholder="Selecciona una categoría de comandos...", min_values=1, max_values=1, options=opciones)
 
@@ -27,52 +25,43 @@ class MenuAyuda(discord.ui.Select):
         # Mapeo de categorías con sus descripciones
         categorias = {
             "configuracion": (
-                "⚙️ Comandos de Configuración",
+                " Comandos de Configuración",
                 "`.configurar_bienvenida`, `.configurar_modlog`, `.configurar_reglas`, `.configurar_verificacion`, `.configurar_rol_miembro`, `.configurar_recompensa`, `.configurar_logs`, `.configurar_confesiones`, `.configurar_cumpleaños`, `.ver_configuracion`"
             ),
             "moderacion": (
-                "🛡️ Comandos de Moderación",
+                " Comandos de Moderación",
                 "`.kick`, `.ban`, `.unban`, `.mute`, `.unmute`, `.clear`, `.warn`, `.historial`"
             ),
-            "reglas": (
-                "📜 Gestión de Reglas",
-                "`.agregar_regla`, `.eliminar_regla`, `.editar_regla`, `.ver_reglas`, `.publicar_reglas`"
-            ),
-            "niveles": ("⭐ Sistema de Niveles", "`.perfil`"),
-            "basico": ("ℹ️ Comandos Básicos", "`.ping`, `.info`, `.avatar`"),
-            "diversion": ("🎲 Comandos de Diversión", "`.moneda`, `.dado`, `.8ball`"),
+            "niveles": (" Sistema de Niveles", "`.perfil`"),
+            "basico": (" Comandos Básicos", "`.ping`, `.info`, `.avatar`"),
+            "diversion": (" Comandos de Diversión", "`.moneda`, `.dado`, `.8ball`"),
             "anuncios": (
-                "📢 Sistema de Anuncios",
+                " Sistema de Anuncios",
                 "`.anuncio #canal título mensaje` — Publica un anuncio con embed profesional. Opcionalmente menciona un rol."
             ),
             "sorteos": (
-                "🎁 Sorteos (Giveaways)",
-                "`.sorteo duración premio` — Crea un sorteo con 🎉.\n`.re_sorteo mensaje_id` — Repite un sorteo con nuevos ganadores."
+                " Sorteos (Giveaways)",
+                "`.sorteo duración premio` — Crea un sorteo con .\n`.re_sorteo mensaje_id` — Repite un sorteo con nuevos ganadores."
             ),
             "recordatorios": (
-                "⏰ Recordatorios",
+                " Recordatorios",
                 "`.recordar tiempo mensaje` — El bot te envía un DM cuando pase el tiempo.\nFormatos: `30m`, `2h`, `1d`, `1h30m`"
             ),
             "estadisticas": (
-                "📈 Estadísticas del Servidor",
+                " Estadísticas del Servidor",
                 "`.stats` — Miembros, canales, roles, boosts, fecha de creación y más."
             ),
-            "animales": (
-                "🐱 Imágenes de Animales",
-                "`.gato` — Imagen random de un gato.\n`.perro` — Imagen random de un perro.\n`.zorro` — Imagen random de un zorro."
-            ),
             "encuestas": (
-                "🧮 Encuestas",
+                " Encuestas",
                 "`.encuesta pregunta opción1 opción2 ...` — Encuesta con hasta 10 opciones.\n`.encuesta_si_no pregunta` — Encuesta rápida de Sí/No."
             ),
             "social": (
-                "💬 Social",
+                " Social",
                 "**Confesiones:**\n`.confesar mensaje` — Envía una confesión anónima.\n`.configurar_confesiones #canal` — Configura el canal.\n\n"
-                "**Cumpleaños:**\n`.cumpleaños día mes` — Registra tu cumpleaños.\n`.mi_cumpleaños` — Consulta tu fecha.\n`.proximos_cumpleaños` — Próximos del servidor.\n`.configurar_cumpleaños #canal` — Canal de felicitaciones.\n\n"
                 "**Logros:**\n`.logros [usuario]` — Ve los logros desbloqueados."
             ),
             "proteccion": (
-                "🔇 Protección del Servidor",
+                " Protección del Servidor",
                 "**Anti-Spam:**\n`.antispam activar/desactivar` — Toggle del sistema.\nDetecta: flood, links, texto repetido, menciones masivas.\n\n"
                 "**Logs Avanzados:**\n`.configurar_logs #canal` — Registra ediciones, eliminaciones, cambios de nick/roles, voz, baneos."
             ),
