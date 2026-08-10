@@ -113,10 +113,16 @@ class Moderacion(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     async def clear(self, ctx, cantidad: int = 5):
         if cantidad < 1 or cantidad > 100:
-            return await ctx.send("Indica una cantidad entre 1 y 100.")
+            return await ctx.send("Indica una cantidad entre 1 y 100.", ephemeral=True)
 
-        eliminados = await ctx.channel.purge(limit=cantidad + 1)
-        msg = await ctx.send(f"Se eliminaron {len(eliminados) - 1} mensajes correctamente.")
+        # Borrar el mensaje del comando primero (solo aplica con prefix, slash lo maneja Discord)
+        try:
+            await ctx.message.delete()
+        except (discord.NotFound, discord.HTTPException, AttributeError):
+            pass
+
+        eliminados = await ctx.channel.purge(limit=cantidad)
+        msg = await ctx.send(f"Se eliminaron {len(eliminados)} mensajes.", ephemeral=True)
         await msg.delete(delay=3)
 
     @commands.hybrid_command(name="warn", help="Envía una advertencia formal y la guarda.")
