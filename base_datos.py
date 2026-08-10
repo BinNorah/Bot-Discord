@@ -219,17 +219,16 @@ class GestorBaseDatos:
         
         Retorna una tupla con:
         (canal_bienvenida_id, canal_modlog_id, rol_miembro_id, roles_recompensa,
-         canal_reglas_id, canal_verificacion_id, canal_confesiones_id,
-         canal_cumpleanos_id, canal_logs_id, antispam_activado, antispam_config)
-        Índices: 0-bienvenida, 1-modlog, 2-rol, 3-recompensas, 4-reglas,
-                 5-verificacion, 6-confesiones, 7-cumpleanos, 8-logs,
-                 9-antispam_on, 10-antispam_cfg
+         canal_anuncios_id, canal_verificacion_id, canal_confesiones_id,
+         canal_logs_id, antispam_activado, antispam_config)
+        Índices: 0-bienvenida, 1-modlog, 2-rol, 3-recompensas, 4-anuncios,
+                 5-verificacion, 6-confesiones, 7-logs, 8-antispam_on, 9-antispam_cfg
         """
         async with aiosqlite.connect(self.ruta) as conexion:
             async with conexion.execute('''
                 SELECT canal_bienvenida_id, canal_modlog_id, rol_miembro_id, roles_recompensa,
                        canal_reglas_id, canal_verificacion_id, canal_confesiones_id,
-                       canal_cumpleanos_id, canal_logs_id, antispam_activado, antispam_config
+                       canal_logs_id, antispam_activado, antispam_config
                 FROM configuracion_servidor
                 WHERE servidor_id = ?
             ''', (servidor_id,)) as cursor:
@@ -276,8 +275,8 @@ class GestorBaseDatos:
             ''', (servidor_id, roles_json))
             await conexion.commit()
 
-    async def guardar_canal_reglas(self, servidor_id: str, canal_id: str):
-        """Guarda o actualiza el canal de reglas para un servidor."""
+    async def guardar_canal_anuncios(self, servidor_id: str, canal_id: str):
+        """Guarda o actualiza el canal de anuncios para un servidor."""
         async with aiosqlite.connect(self.ruta) as conexion:
             await conexion.execute('''
                 INSERT INTO configuracion_servidor (servidor_id, canal_reglas_id)

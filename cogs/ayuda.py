@@ -37,7 +37,7 @@ class MenuAyuda(discord.ui.Select):
             "diversion": (" Comandos de Diversión", "`.moneda`, `.dado`, `.8ball`"),
             "anuncios": (
                 " Sistema de Anuncios",
-                "`.anuncio #canal título mensaje` — Publica un anuncio con embed profesional. Opcionalmente menciona un rol."
+                "`.anuncio #canal título mensaje` — Publica un anuncio mencionando a @everyone.\n`.configurar_anuncios #canal` — Establece el canal oficial de anuncios."
             ),
             "sorteos": (
                 " Sorteos (Giveaways)",

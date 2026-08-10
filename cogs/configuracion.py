@@ -101,21 +101,21 @@ class Configuracion(commands.Cog):
         )
         await ctx.send(embed=embed, ephemeral=True)
 
-    # ─── /configurar_reglas ───────────────────────────────────────────
+    # ─── /configurar_anuncios ──────────────────────────────────────
 
     @commands.hybrid_command(
-        name="configurar_reglas",
-        description="Establece el canal donde se publicarán las reglas del servidor."
+        name="configurar_anuncios",
+        description="Establece el canal donde se publicarán los anuncios del servidor."
     )
     @commands.has_permissions(administrator=True)
     @app_commands.default_permissions(administrator=True)
-    @app_commands.describe(canal="El canal de texto para las reglas")
-    async def configurar_reglas(self, ctx: commands.Context, canal: discord.TextChannel):
-        await db.guardar_canal_reglas(str(ctx.guild.id), str(canal.id))
+    @app_commands.describe(canal="El canal de texto para los anuncios")
+    async def configurar_anuncios(self, ctx: commands.Context, canal: discord.TextChannel):
+        await db.guardar_canal_anuncios(str(ctx.guild.id), str(canal.id))
 
         embed = discord.Embed(
-            title=" Canal de reglas configurado",
-            description=f"Las reglas se publicarán en {canal.mention}.",
+            title=" Canal de anuncios configurado",
+            description=f"Los anuncios se publicarán en {canal.mention}.",
             color=config.COLOR_EXITO
         )
         await ctx.send(embed=embed, ephemeral=True)
@@ -159,9 +159,9 @@ class Configuracion(commands.Cog):
             embed.description = "Este servidor aún no tiene ninguna configuración guardada.\nUsa los comandos `/configurar_*` para empezar."
             return await ctx.send(embed=embed, ephemeral=True)
 
-        # Índices: 0-bienvenida, 1-modlog, 2-rol, 3-recompensas, 4-reglas,
-        #          5-verificacion, 6-confesiones, 7-cumpleanos, 8-logs,
-        #          9-antispam_on, 10-antispam_cfg
+        # Comentario: Índices del tuple de configuración:
+        # 0-bienvenida, 1-modlog, 2-rol, 3-recompensas, 4-anuncios,
+        # 5-verificacion, 6-confesiones, 7-logs, 8-antispam_on, 9-antispam_cfg
 
         # Función auxiliar para mostrar canales
         def _canal_valor(idx, nombre_no_config="*No configurado*"):
@@ -176,20 +176,17 @@ class Configuracion(commands.Cog):
         # Canal de modlog
         embed.add_field(name=" Canal de Modlog", value=_canal_valor(1), inline=False)
 
-        # Canal de reglas
-        embed.add_field(name=" Canal de Reglas", value=_canal_valor(4), inline=False)
+        # Canal de anuncios
+        embed.add_field(name=" Canal de Anuncios", value=_canal_valor(4), inline=False)
 
         # Canal de verificación
         embed.add_field(name=" Canal de Verificación", value=_canal_valor(5), inline=False)
 
         # Canal de logs avanzados
-        embed.add_field(name=" Canal de Logs Avanzados", value=_canal_valor(8), inline=False)
+        embed.add_field(name=" Canal de Logs Avanzados", value=_canal_valor(7), inline=False)
 
         # Canal de confesiones
         embed.add_field(name=" Canal de Confesiones", value=_canal_valor(6), inline=False)
-
-        # Canal de cumpleaños
-        embed.add_field(name=" Canal de Cumpleaños", value=_canal_valor(7), inline=False)
 
         # Rol de verificación
         if conf[2]:
@@ -199,7 +196,7 @@ class Configuracion(commands.Cog):
             embed.add_field(name=" Rol de Verificación", value="*No configurado*", inline=False)
 
         # Anti-spam
-        antispam_estado = " Activado" if conf[9] else " Desactivado"
+        antispam_estado = " Activado" if conf[8] else " Desactivado"
         embed.add_field(name=" Anti-Spam", value=antispam_estado, inline=False)
 
         # Roles de recompensa
@@ -216,14 +213,6 @@ class Configuracion(commands.Cog):
                 embed.add_field(name=" Recompensas por Nivel", value="*No configuradas*", inline=False)
         else:
             embed.add_field(name=" Recompensas por Nivel", value="*No configuradas*", inline=False)
-
-        # Cantidad de reglas
-        reglas = await db.obtener_reglas(str(ctx.guild.id))
-        embed.add_field(
-            name=" Reglas del Servidor",
-            value=f"**{len(reglas)}** reglas configuradas" if reglas else "*Sin reglas — usa `/agregar_regla`*",
-            inline=False
-        )
 
         await ctx.send(embed=embed, ephemeral=True)
 
