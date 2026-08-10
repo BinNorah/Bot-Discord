@@ -1,11 +1,17 @@
 import json
+import os
 import aiosqlite
 
 class GestorBaseDatos:
     """Clase para manejar las conexiones y operaciones asíncronas de SQLite3."""
     
-    def __init__(self, ruta_archivo="datos_bot.db"):
-        self.ruta = ruta_archivo
+    def __init__(self):
+        # Usa la variable DB_PATH si existe (Railway Volume), si no, ruta local
+        ruta = os.getenv("DB_PATH", "datos_bot.db")
+        # Si DB_PATH es un directorio, añadimos el nombre del archivo
+        if os.path.isdir(ruta):
+            ruta = os.path.join(ruta, "datos_bot.db")
+        self.ruta = ruta
 
     async def inicializar_tablas(self):
         """Crea las tablas necesarias si no existen."""
