@@ -1,3 +1,4 @@
+import asyncio
 import time
 import discord
 from discord.ext import commands
@@ -82,6 +83,52 @@ class Basico(commands.Cog):
         )
         embed.set_image(url=usuario_objetivo.display_avatar.url)
         await ctx.send(embed=embed)
+
+    @commands.hybrid_command(
+        name="limpiar_dm",
+        aliases=["cleardm", "borrar_dm"],
+        help="Elimina los mensajes que el bot te haya enviado en tu chat privado (DM)."
+    )
+    async def limpiar_dm(self, ctx: commands.Context, cantidad: int = 50):
+        if ctx.interaction:
+            await ctx.interaction.response.defer(ephemeral=True)
+
+        canal_dm = ctx.author.dm_channel
+        if canal_dm is None:
+            try:
+                canal_dm = await ctx.author.create_dm()
+            except Exception:
+                return await ctx.send("❌ No se pudo acceder a tu chat privado.", ephemeral=True)
+
+        borrados = 0
+        try:
+            async for mensaje in canal_dm.history(limit=max(1, min(cantidad, 100))):
+                if mensaje.author.id == self.bot.user.id:
+                    try:
+                        await mensaje.delete()
+                        borrados += 1
+                        await asyncio.sleep(0.3)
+                    except (discord.NotFound, discord.Forbidden):
+                        pass
+        except Exception:
+            pass
+
+        embed = discord.Embed(
+            title="🧹 Mensajes directos limpiados",
+            description=f"Se eliminaron **{borrados}** mensajes enviados por el bot en tu chat privado.",
+            color=config.COLOR_EXITO
+        )
+
+        if ctx.interaction:
+            await ctx.interaction.followup.send(embed=embed, ephemeral=True)
+        else:
+            msg = await ctx.send(embed=embed)
+            if ctx.guild is None:
+                # Si se ejecutó en el DM, auto-borrar el mensaje de confirmación a los 5 segundos
+                try:
+                    await msg.delete(delay=5)
+                except Exception:
+                    pass
 
 async def setup(bot):
     await bot.add_cog(Basico(bot))

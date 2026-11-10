@@ -31,7 +31,7 @@ class MenuAyuda(discord.ui.Select):
                 " Comandos de Moderación",
                 "`.kick`, `.ban`, `.unban`, `.mute`, `.unmute`, `.clear`, `.warn`, `.historial`"
             ),
-            "basico": (" Comandos Básicos y Perfil", "`.ping`, `.uptime`, `.info`, `.avatar`, `.perfil`"),
+            "basico": (" Comandos Básicos y Perfil", "`.ping`, `.uptime`, `.info`, `.avatar`, `.perfil`, `.limpiar_dm`"),
             "diversion": (" Comandos de Diversión", "`.moneda`, `.dado`, `.8ball`"),
             "anuncios": (
                 " Sistema de Anuncios",

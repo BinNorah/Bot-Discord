@@ -196,6 +196,7 @@ Al publicar reglas con `/publicar_reglas`, puedes usar estos placeholders en el 
 | `/info` | Información general sobre el bot (servidores, usuarios, actividad) | `/info` |
 | `/avatar` | Muestra el avatar de un usuario en tamaño completo | `/avatar @usuario` |
 | `/perfil` | Muestra la tarjeta de perfil, antigüedad y roles de un usuario | `/perfil @usuario` |
+| `/limpiar_dm` | Elimina los mensajes que el bot te haya enviado a tus mensajes directos (DM) | `/limpiar_dm` |
 
 ### Detalles de `/avatar`
 
