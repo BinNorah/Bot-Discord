@@ -236,16 +236,16 @@ Al publicar reglas con `/publicar_reglas`, puedes usar estos placeholders en el 
 
 | Comando | Descripción | Ejemplo |
 |---------|-------------|---------|
-| `/anuncio` | Publica un anuncio con embed profesional en un canal | `/anuncio #general "Evento" "¡Este sábado hay evento!"` |
+| `/anuncio` | Publica un anuncio con embed profesional mencionando a la comunidad | `/anuncio "Evento" "¡Este sábado hay evento a las 8 PM!"` |
 
 ### Detalles de `/anuncio`
 
 | Parámetro | Tipo | Requerido | Descripción |
 |-----------|------|-----------|-------------|
-| `canal` | Canal de texto | ✅ | Canal donde se publicará el anuncio |
 | `titulo` | Texto | ✅ | Título del anuncio |
-| `mensaje` | Texto | ✅ | Contenido del anuncio |
-| `rol` | Rol | ❌ | Rol a mencionar (hace ping fuera del embed) |
+| `contenido` | Texto | ✅ | Contenido y mensaje del anuncio |
+
+*Se publica automáticamente en el canal configurado con `/configurar_anuncios` (o en el canal actual), mencionando a todos los roles inferiores a Admin o Mod.*
 
 **El embed incluye:**
 - Título con emoji 📢
