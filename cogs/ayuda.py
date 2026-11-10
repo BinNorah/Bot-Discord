@@ -33,7 +33,7 @@ class MenuAyuda(discord.ui.Select):
                 "`.kick`, `.ban`, `.unban`, `.mute`, `.unmute`, `.clear`, `.warn`, `.historial`"
             ),
             "niveles": (" Sistema de Niveles", "`.perfil`"),
-            "basico": (" Comandos Básicos", "`.ping`, `.info`, `.avatar`"),
+            "basico": (" Comandos Básicos", "`.ping`, `.uptime`, `.info`, `.avatar`"),
             "diversion": (" Comandos de Diversión", "`.moneda`, `.dado`, `.8ball`"),
             "anuncios": (
                 " Sistema de Anuncios",

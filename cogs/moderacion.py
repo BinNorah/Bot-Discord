@@ -123,7 +123,10 @@ class Moderacion(commands.Cog):
 
         eliminados = await ctx.channel.purge(limit=cantidad)
         msg = await ctx.send(f"Se eliminaron {len(eliminados)} mensajes.", ephemeral=True)
-        await msg.delete(delay=3)
+        try:
+            await msg.delete(delay=3)
+        except (discord.NotFound, discord.HTTPException, discord.Forbidden):
+            pass
 
     @commands.hybrid_command(name="warn", help="Envía una advertencia formal y la guarda.")
     @commands.has_permissions(kick_members=True)

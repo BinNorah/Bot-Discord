@@ -24,12 +24,36 @@ class Basico(commands.Cog):
         self.bot = bot
         self.inicio = time.time()
 
+    def _calcular_uptime(self) -> str:
+        segundos_totales = int(time.time() - self.inicio)
+        dias, rem = divmod(segundos_totales, 86400)
+        horas, rem = divmod(rem, 3600)
+        minutos, segundos = divmod(rem, 60)
+        partes = []
+        if dias > 0:
+            partes.append(f"{dias}d")
+        if horas > 0:
+            partes.append(f"{horas}h")
+        if minutos > 0:
+            partes.append(f"{minutos}m")
+        partes.append(f"{segundos}s")
+        return " ".join(partes)
+
     @commands.hybrid_command(name="ping", help="Muestra la latencia actual del bot.")
     async def ping(self, ctx):
         latencia = round(self.bot.latency * 1000)
         embed = discord.Embed(
             title="Latencia",
             description=f"`{latencia} ms`",
+            color=config.COLOR_INFO,
+        )
+        await ctx.send(embed=embed)
+
+    @commands.hybrid_command(name="uptime", help="Muestra el tiempo que el bot lleva activo en línea.")
+    async def uptime(self, ctx):
+        embed = discord.Embed(
+            title="Tiempo de actividad",
+            description=f"El bot ha estado activo durante: `{self._calcular_uptime()}`",
             color=config.COLOR_INFO,
         )
         await ctx.send(embed=embed)
@@ -43,6 +67,7 @@ class Basico(commands.Cog):
         )
         embed.add_field(name="Servidores", value=str(len(self.bot.guilds)), inline=True)
         embed.add_field(name="Usuarios", value=str(len(self.bot.users)), inline=True)
+        embed.add_field(name="Activo", value=self._calcular_uptime(), inline=True)
         embed.set_thumbnail(url=self.bot.user.display_avatar.url)
         
         vista_interactiva = VistaEnlaces()

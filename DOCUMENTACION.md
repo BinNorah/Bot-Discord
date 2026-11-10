@@ -192,7 +192,8 @@ Al publicar reglas con `/publicar_reglas`, puedes usar estos placeholders en el 
 | Comando | Descripción | Ejemplo |
 |---------|-------------|---------|
 | `/ping` | Muestra la latencia actual del bot en milisegundos | `/ping` |
-| `/info` | Información general sobre el bot (servidores, usuarios) | `/info` |
+| `/uptime` | Muestra el tiempo transcurrido desde que el bot inició sesión | `/uptime` |
+| `/info` | Información general sobre el bot (servidores, usuarios, actividad) | `/info` |
 | `/avatar` | Muestra el avatar de un usuario en tamaño completo | `/avatar @usuario` |
 
 ### Detalles de `/avatar`

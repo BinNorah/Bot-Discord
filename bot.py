@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import os
+import sys
 
 import discord
 from discord.ext import commands
@@ -97,8 +98,14 @@ bot = MiBotProfesional()
 
 async def main():
     if not config.DISCORD_TOKEN:
-        logger.error("No se encontró DISCORD_TOKEN en las variables de entorno.")
-        return
+        logger.critical("No se encontró DISCORD_TOKEN en las variables de entorno.")
+        vars_detectadas = [
+            k.strip() for k in os.environ.keys()
+            if not any(secreto in k.lower() for secreto in ["token", "key", "secret", "pass", "auth"])
+        ]
+        logger.info("Variables no confidenciales presentes en el contenedor: %s", vars_detectadas)
+        logger.info("Verifica que en Railway la variable se llame exactamente DISCORD_TOKEN y haz clic en 'Redeploy'.")
+        sys.exit(1)
 
     async with bot:
         await bot.start(config.DISCORD_TOKEN)
