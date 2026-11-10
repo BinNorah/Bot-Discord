@@ -25,7 +25,7 @@ class MenuAyuda(discord.ui.Select):
         categorias = {
             "configuracion": (
                 " Comandos de Configuración",
-                "`.configurar_bienvenida`, `.configurar_modlog`, `.configurar_verificacion`, `.configurar_rol_miembro`, `.configurar_logs`, `.configurar_confesiones`, `.ver_configuracion`"
+                "`.configurar_bienvenida`, `.configurar_modlog`, `.configurar_verificacion`, `.configurar_rol_miembro`, `.enviarverificacion`, `.verificar_todos`, `.configurar_logs`, `.configurar_confesiones`, `.ver_configuracion`"
             ),
             "moderacion": (
                 " Comandos de Moderación",

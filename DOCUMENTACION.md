@@ -464,6 +464,7 @@ Cuando un miembro se une al servidor (y el canal de bienvenida está configurado
 | Comando | Descripción | Ejemplo |
 |---------|-------------|---------|
 | `/enviarverificacion` | Publica el panel de verificación | `/enviarverificacion` |
+| `/verificar_todos` | Asigna el rol de verificación masivamente a todos los miembros que aún no lo tengan | `/verificar_todos` |
 
 ### ¿Cómo funciona?
 
