@@ -70,37 +70,6 @@ class Configuracion(commands.Cog):
         )
         await ctx.send(embed=embed, ephemeral=True)
 
-    # ─── /configurar_recompensa ───────────────────────────────────────
-
-    @commands.hybrid_command(
-        name="configurar_recompensa",
-        description="Asigna un rol como recompensa al alcanzar cierto nivel."
-    )
-    @commands.has_permissions(administrator=True)
-    @app_commands.default_permissions(administrator=True)
-    @app_commands.describe(nivel="El nivel requerido para obtener el rol", rol="El rol de recompensa")
-    async def configurar_recompensa(self, ctx: commands.Context, nivel: int, rol: discord.Role):
-        if nivel < 1:
-            return await ctx.send(" El nivel debe ser mayor o igual a 1.", ephemeral=True)
-
-        # Leer las recompensas existentes
-        conf = await db.obtener_configuracion(str(ctx.guild.id))
-        if conf and conf[3]:
-            roles_dict = json.loads(conf[3])
-        else:
-            roles_dict = {}
-
-        # Actualizar con la nueva recompensa (las keys del JSON son siempre strings)
-        roles_dict[str(nivel)] = str(rol.id)
-        await db.guardar_roles_recompensa(str(ctx.guild.id), roles_dict)
-
-        embed = discord.Embed(
-            title=" Recompensa de nivel configurada",
-            description=f"Al alcanzar el **Nivel {nivel}**, los miembros recibirán el rol {rol.mention}.",
-            color=config.COLOR_EXITO
-        )
-        await ctx.send(embed=embed, ephemeral=True)
-
     # ─── /configurar_anuncios ──────────────────────────────────────
 
     @commands.hybrid_command(
@@ -198,21 +167,6 @@ class Configuracion(commands.Cog):
         # Anti-spam
         antispam_estado = " Activado" if conf[8] else " Desactivado"
         embed.add_field(name=" Anti-Spam", value=antispam_estado, inline=False)
-
-        # Roles de recompensa
-        if conf[3]:
-            roles_dict = json.loads(conf[3])
-            if roles_dict:
-                lineas = []
-                for nivel_str, rol_id_str in sorted(roles_dict.items(), key=lambda x: int(x[0])):
-                    rol = ctx.guild.get_role(int(rol_id_str))
-                    nombre_rol = rol.mention if rol else f"ID: {rol_id_str}"
-                    lineas.append(f"Nivel **{nivel_str}** → {nombre_rol}")
-                embed.add_field(name=" Recompensas por Nivel", value="\n".join(lineas), inline=False)
-            else:
-                embed.add_field(name=" Recompensas por Nivel", value="*No configuradas*", inline=False)
-        else:
-            embed.add_field(name=" Recompensas por Nivel", value="*No configuradas*", inline=False)
 
         await ctx.send(embed=embed, ephemeral=True)
 

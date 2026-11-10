@@ -8,15 +8,14 @@ class MenuAyuda(discord.ui.Select):
         opciones = [
             discord.SelectOption(label="Configuración", description="Comandos para configurar canales y roles.", value="configuracion"),
             discord.SelectOption(label="Moderación", description="Comandos para administrar el servidor.", value="moderacion"),
-            discord.SelectOption(label="Niveles", description="Sistema de experiencia y economía.", value="niveles"),
-            discord.SelectOption(label="Básico", description="Comandos de información y utilidad.", value="basico"),
+            discord.SelectOption(label="Básico", description="Comandos de información y perfiles de usuario.", value="basico"),
             discord.SelectOption(label="Diversión", description="Minijuegos y comandos de azar.", value="diversion"),
             discord.SelectOption(label="Anuncios", description="Publica anuncios con embeds.", value="anuncios"),
             discord.SelectOption(label="Sorteos", description="Crea sorteos con reacciones.", value="sorteos"),
             discord.SelectOption(label="Recordatorios", description="Programa recordatorios por DM.", value="recordatorios"),
             discord.SelectOption(label="Estadísticas", description="Información del servidor.", value="estadisticas"),
             discord.SelectOption(label="Encuestas", description="Crea encuestas con reacciones.", value="encuestas"),
-            discord.SelectOption(label="Social", description="Confesiones, cumpleaños y logros.", value="social"),
+            discord.SelectOption(label="Social", description="Confesiones anónimas y cumpleaños.", value="social"),
             discord.SelectOption(label="Protección", description="Anti-spam y logs avanzados.", value="proteccion"),
         ]
         super().__init__(placeholder="Selecciona una categoría de comandos...", min_values=1, max_values=1, options=opciones)
@@ -26,14 +25,13 @@ class MenuAyuda(discord.ui.Select):
         categorias = {
             "configuracion": (
                 " Comandos de Configuración",
-                "`.configurar_bienvenida`, `.configurar_modlog`, `.configurar_verificacion`, `.configurar_rol_miembro`, `.configurar_recompensa`, `.configurar_logs`, `.configurar_confesiones`, `.ver_configuracion`"
+                "`.configurar_bienvenida`, `.configurar_modlog`, `.configurar_verificacion`, `.configurar_rol_miembro`, `.configurar_logs`, `.configurar_confesiones`, `.ver_configuracion`"
             ),
             "moderacion": (
                 " Comandos de Moderación",
                 "`.kick`, `.ban`, `.unban`, `.mute`, `.unmute`, `.clear`, `.warn`, `.historial`"
             ),
-            "niveles": (" Sistema de Niveles", "`.perfil`"),
-            "basico": (" Comandos Básicos", "`.ping`, `.uptime`, `.info`, `.avatar`"),
+            "basico": (" Comandos Básicos y Perfil", "`.ping`, `.uptime`, `.info`, `.avatar`, `.perfil`"),
             "diversion": (" Comandos de Diversión", "`.moneda`, `.dado`, `.8ball`"),
             "anuncios": (
                 " Sistema de Anuncios",
@@ -57,8 +55,7 @@ class MenuAyuda(discord.ui.Select):
             ),
             "social": (
                 " Social",
-                "**Confesiones:**\n`.confesar mensaje` — Envía una confesión anónima.\n`.configurar_confesiones #canal` — Configura el canal.\n\n"
-                "**Logros:**\n`.logros [usuario]` — Ve los logros desbloqueados."
+                "**Confesiones:**\n`.confesar mensaje` — Envía una confesión anónima.\n`.configurar_confesiones #canal` — Configura el canal."
             ),
             "proteccion": (
                 " Protección del Servidor",
