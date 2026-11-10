@@ -99,6 +99,13 @@ bot = MiBotProfesional()
 async def main():
     if not config.DISCORD_TOKEN:
         logger.critical("No se encontró DISCORD_TOKEN en las variables de entorno.")
+        logger.info(
+            "Entorno Railway -> Proyecto: '%s' | Servicio: '%s' | Entorno: '%s' | Rama: '%s'",
+            os.getenv("RAILWAY_PROJECT_NAME"),
+            os.getenv("RAILWAY_SERVICE_NAME"),
+            os.getenv("RAILWAY_ENVIRONMENT_NAME"),
+            os.getenv("RAILWAY_GIT_BRANCH")
+        )
         vars_detectadas = [
             k.strip() for k in os.environ.keys()
             if not any(secreto in k.lower() for secreto in ["token", "key", "secret", "pass", "auth"])
